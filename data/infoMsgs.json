@@ -1,0 +1,19 @@
+{
+  "infoMsg1": [
+    "Hey there! If you're seeing this, it means you want to add the bot to your server. Before we do that, there are a couple things you need to know about the bot. If you do not follow these steps, the bot won't work for you, and will error for me! We don't want that, do we?",
+    "-----------------------------------------------------",
+    "First, you must create a couple roles, these being Owner, Manager, Admin and Mod, and these roles are CaSe SeNsItIvE. That enables the permissions system to work. (NOT REALLY, IT IS RECOMMEDED THO)",
+    "-----------------------------------------------------",
+    "Next, if you want to have modlog on (which is highly recommended), you need to create a channel named #logs. After that, modlog will be enabled, no additional commands needed."
+  ],
+  "infoMsg2": [
+    "Then, you need to invite the bot! Here's an invite link. https://discordapp.com/api/oauth2/authorize?client_id=482128001828651008&permissions=8&scope=bot",
+    "Once you've done that, do `/help` to see all the commands that the bot has for you."
+  ],
+  "infoMsg3": [
+    "DiscordBots Site: https://discordbots.org/bot/482128001828651008",
+    "To-Do List: Listening to Suggestions and fixing reported bugs! Do /suggest <suggestion> if you have any suggestions or /bug <bug> if you found any bugs. Thanks.",
+    "Support Server: https://discord.gg/2NQbbPN",
+    "Bot Website: https://harutohiroki.github.io/Cryptonix_x/index.html"
+  ]
+}
