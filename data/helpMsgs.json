@@ -4,7 +4,6 @@
       "**/ban** - Bans a user",
       "**/hackban** - Hackban/Force ban a user",
       "**/unban** - Unbans a user",
-      "**/bug** - Report a bug for the developers to fix it",
       "**/kick** - Kicks a user",
       "**/mute** - Mutes a user",
       "**/tempmute** - Temporary mutes the mentioned user",
@@ -20,10 +19,7 @@
       "**/prefix** - Change the Bot's prefix (remember to note the new prefix down as the commands prefix here won't change to your new prefix)",
       "**/votekick** - Votes to kick someone!",
       "**/rename** -  Renames someone.",
-      "**/purge** - Purge messages",
-      "**/purgebot** - Purge all (about 100) messages from bots",
-      "**/purgeuser** - Purge all (about 100) messages from users",
-      "**/selfrole** - Setup Selfrole function for your server!"
+      "**/purge** - Purge messages"
       ],
     "helpMsg2": [
       "**/about** - About the bot.",
@@ -64,30 +60,6 @@
       "**/credits** - Sends a list of contributors."
     ],
     "helpMsg4": [
-      "**/coinsset** - Set a user's coin ammount",
-      "**/eval** - Evaluates a string",
-      "**/exec** - Executes a process command",
-      "**/reload** - Reloads a command",
-      "**/shutdown** - Shutdown the bot",
-      "**/setgame** - Sets the bot's game",
-      "**/setstatus** - Sets the bot's status",
-      "**/dms** - DMs the mentioned member",
-      "**/changelog** - Shows the bot's change log",
-      "**/blacklist** - Bans the user or user ID from using the bot",
-      "**/unblacklist** - Removes a user from blacklist",
-      "**/changelog** - Shows the bot's change log",
-      "**/owneraddrole** - Add a role to you ",
-      "**/onwerremoverole** - Remove a user's role ",
-      "**/ownerpurge** - Purge messages ",
-      "**/ownerprefixset** - Set the prefix ",
-      "**/ownerkick** - Kick someone ",
-      "**/ownerban** - Ban someone ",
-      "**/ownerwarn** - Warn someone ",
-      "**/ownerclearwarns** - Clear someone's warn ",
-      "**/leave** - Make the bot leave the server that it's in",
-      "**/guildinvitecreate** - Get the invite of a guild that has the bot but you're not in :)"
-    ],
-    "helpMsg5": [
       "**/hug** - Hugs someone OwO",
       "**/pat** - Pats someone OwO",
       "**/kiss** - Kisses someone OwO",
@@ -102,32 +74,5 @@
       "**/punch** - Punches a user",
       "**/hammer** - Gives you a hammer to throw at a pleb",
       "**/fight** - Fight someone."
-    ],
-    "helpMsg6":[
-      "**/feet** **/yuri** **/hololewd** **/lewdkemo** **/solog** **/feetg** **/cum** **/erokemo** **/les** **/lewdk** **/lewdneko** **/hentai** **/ero** **/boobs** **/eroyuri** **/sboobs**"
-    ],
-    "emoji":[
-      "**/plantjerk** - Sends a Nitro emoji",
-      "**/nou** - Sends a Nitro emoji",
-      "**/upvote** - Sends a Nitro emoji",
-      "**/boi** - Sends a Nitro emoji",
-      "**/angryping** - Sends a Nitro emoji",
-      "**/yayyy** - Sends a Nitro emoji",
-      "**/hyped** - Sends a Nitro emoji",
-      "**/confusedrun** - Sends a Nitro emoji",
-      "**/kthxbai** - Sends a Nitro emoji",
-      "**/orangejustice** - Sends a Nitro emoji",
-      "**/loading** - Sends a Nitro emoji",
-      "**/wesmart** - Sends a Nitro emoji",
-      "**/ragequit** - Sends a Nitro emoji",
-      "**/abooz** - Sends a Nitro emoji",
-      "**/pepetos**",
-      "**/rainbowthink**",
-      "**/crabrave** - Crab Rave Meme",
-      "**/pissedoffping** - Angry sock 1000 ping",
-      "**/bbongo** - Balanced Bongo Cat",
-      "**/bcheck** - Balanced Check Mark",
-      "**/pikawoo** - Pika Pika Pikachuuuuuuuuuu",
-      "**/randomnitro** - Sends a random nitro emoji"
     ]
 }
