@@ -53,8 +53,8 @@ client.on("guildCreate", guild => {
     client.guilds.forEach((guild) => {
       if (!blacklist[guild.ownerID]) return
       if(blacklist[guild.ownerID].state === true) {
-        message.channel.send("But UNFORTUNATELY, the owner of this server has been blacklisted before so I'm LEAVING! Bye!")
-        message.guild.leave(guild.id)
+        channel.send("But UNFORTUNATELY, the owner of this server has been blacklisted before so I'm LEAVING! Bye!")
+        guild.leave(guild.id)
       }
     })
 });
