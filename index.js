@@ -28,7 +28,6 @@ fs.readdir('./commands/', (err, files) => {
 
 client.on('ready', () => {
   setInterval(() => {
-    dbl.postStats(client.guilds.size);
     client.user.setPresence({ game: { name: `Gaming with /help`, type: 1, url: "https://www.twitch.tv/hiroaki_haruto" }})
   }, 60000);
 });

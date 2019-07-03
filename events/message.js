@@ -15,6 +15,7 @@ module.exports = async message => {
     blacklist[message.author.id] = {state: false}};
     if (blacklist[message.author.id].state === true) return;
   
+    let prefix = settings.prefix
   if (!message.content.startsWith(prefix)) return;  
     
     let command = message.content.split(' ')[0].slice(prefix.length);
