@@ -5,12 +5,13 @@ const settings = require('../settings.json');
 const fs = require('fs')
 exports.run = (client, message, args) => {
   if(!args[0]){
-      message.author.send("```" + "***Moderation***\n" + `${help.helpMsg1}` + "```" + "\n" + "```" + "***Usefull***\n" + `${help.helpMsg2}` + "```" + "\n" + "```"+"***Fun***\n"+`${help.helpMsg3}`+"```" + "```" + "```"+"***Action***\n"+`${help.helpMsg4}`+"```")
+      message.author.send("***Moderation***\n" + `${help.helpMsg1}` + "\n" + "***Usefull***\n" + `${help.helpMsg2}`)
+      message.author.send("***Fun***\n"+`${help.helpMsg3}`+"***Action***\n"+`${help.helpMsg4}`)
       .catch(e =>{
         if (e) {
         message.channel.send(`Error. You seems to be locking your DMs so I'll send it here instead.`);
-        message.channel.send("```" + "***Moderation***\n" + `${help.helpMsg1}` + "```" + "\n" + "```" + "***Usefull***\n" + `${help.helpMsg2}` + "```")
-        message.channel.send("```"+"***Fun***\n"+`${help.helpMsg3}`+"```" + "```" + "```"+"***Action***\n"+`${help.helpMsg4}`+"```")
+        message.channel.send("***Moderation***\n" + `${help.helpMsg1}` + "\n" + "***Usefull***\n" + `${help.helpMsg2}`)
+        message.channel.send("***Fun***\n"+`${help.helpMsg3}`+"***Action***\n"+`${help.helpMsg4}`)
       }
       });
     }else{
