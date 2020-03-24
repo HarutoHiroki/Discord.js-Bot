@@ -1,7 +1,7 @@
 # JS-Discord-Bot
 An Open Source version of Cryptonix X and a basic frame for any discord.js bot
 
-Made by **HarutoHiroki** a.k.a **QuikScope#4000**
+Made by **HarutoHiroki#4000**
 
 ## Requirements
 - Node.js Recommended 10.15.3 and up - https://nodejs.org/en/download/
