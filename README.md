@@ -1,7 +1,7 @@
 # JS-Discord-Bot
 An Open Source version of Cryptonix X and a basic frame for any discord.js bot
 
-(IMPORTANT: Made for discord.js v11, not yet ready for v12)
+**(IMPORTANT: Made for discord.js v11, not yet ready for v12)**
 
 Made by **HarutoHiroki#4000**
 
