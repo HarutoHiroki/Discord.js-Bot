@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const customisation = require('../customisation.json');
 exports.run = (client, msg, args) => {
   msg.delete();
-  const embed = new Discord.RichEmbed()
+  const embed = new Discord.MessageEmbed()
   .setColor(0xFFFF00)
   .addField('About The Bot', `Cryptonix is a bot created by ${customisation.ownername}, made for any discord server that needs moderating. It is written with Discord.js. To see more info about the bot, type /info in <#556351532531187732>`)
   .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
@@ -18,7 +18,7 @@ exports.conf = {
   };
   
   exports.help = {
-    name: 'about',
-    description: 'About the bot.',
-    usage: 'about'
-  };
+  name: 'about',
+  description: 'About the bot.',
+  usage: 'about'
+};
