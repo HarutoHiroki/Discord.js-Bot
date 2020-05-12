@@ -6,7 +6,7 @@ exports.run = async (client, message, args, tools) => {
     const { body } = await superagent
     .get("https://nekos.life/api/v2/img/ngif");
     
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor("#ff9900")
     .setTitle(`OwO, Heres your Neko Gif`)
     .setImage(body.url) 

@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
         if(err) throw err;
       });
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor(0xFFFF01)
     .setTimestamp()
     .addField('Action:', 'Clear Warns', true)

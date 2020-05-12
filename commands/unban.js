@@ -1,28 +1,46 @@
+const Discord = require('discord.js');
+const customisation = require('../customisation.json');
 exports.run = (client, message, args) => {
-  let reason = args.slice(1).join(' ');
-  client.unbanReason = reason;
   client.unbanAuth = message.author;
   let user = args[0];
-  
-  let modlog = client.channels.find('name', 'logs');
-  if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(":no_entry_sign: **Error:** You don't have the **Ban Members** permission!");
-  if (!modlog) return message.channel.send('I cannot find a logs channel');
+  let reason = args.slice(1).join(' ');
   if (reason.length < 1) reason = 'No reason supplied.';
   if (!user) return message.channel.send('You must supply a User Resolvable, such as a user id.').catch(console.error);
-  message.guild.unban(user, {reason: reason.length < 1 ? 'No reason supplied.': reason}).catch(e =>{
+  message.guild.members.unban(user, reason).catch(e =>{
     if(e){
-      return message.channel.send(`${client.users.get(`${args[0]}`).username} isn't banned, YET :wink:`);
+      return message.channel.send(`${client.users.cache.get(`${args[0]}`).username} isn't banned, YET :wink:`);
     }
-    message.channel.send(`${client.users.get(`${args[0]}`).username}#${client.users.get(`${args[0]}`).discriminator} has been unbanned`);
-  });;
+  }).then(() =>{
+    const embed = new Discord.MessageEmbed()
+      .setColor(0xFF0000)
+      .setTimestamp()
+      .addField('Action:', 'Unban')
+      .addField('User:', `${client.users.cache.get(`${args[0]}`).username}#${client.users.cache.get(`${args[0]}`).discriminator} (${user})`)
+      .addField('Moderator:', `${message.author.username}#${message.author.discriminator}`)
+      .addField('Reason', reason)
+      .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
 
+    const settings = require("../models/settings.js")
+    settings.findOne({
+      guildID: message.guild.id
+    }, (err, settings) =>{
+      let logs = settings.logs
+      let logchannel = settings.logchannel;
+      if  (logs == true && logchannel !== 'none'){
+        message.channel.send(`${client.users.cache.get(`${args[0]}`).username}#${client.users.cache.get(`${args[0]}`).discriminator} has been unbanned. Also I've logged it in <#${logchannel}>.`)
+        if(client.channels.cache.get(logchannel)) client.channels.cache.get(logchannel).send({embed});
+      }else{
+        return message.channel.send(`${client.users.cache.get(`${args[0]}`).username}#${client.users.cache.get(`${args[0]}`).discriminator} has been unbanned`);
+      }
+    })
+  })
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: 0
+  permLevel: 2
 };
 
 exports.help = {

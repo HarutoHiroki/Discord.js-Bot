@@ -3,11 +3,11 @@ exports.run = (client, message, args) => {
   if (!client.lockit) client.lockit = [];
   let time = args.join(' ');
   let validUnlocks = ['release', 'unlock'];
-  if (!message.member.hasPermission("MANAGE_CHANNELS")) return msg.reply("❌**Error:** You don't have the permission to do that!");
+  //if (!message.member.hasPermission("MANAGE_CHANNELS")) return msg.reply("❌**Error:** You don't have the permission to do that!");
   if (!time) return message.reply('You must set a duration for the lockdown in either hours, minutes or seconds');
 
   if (validUnlocks.includes(time)) {
-    message.channel.overwritePermissions(message.guild.id, {
+    message.channel.createOverwrite(message.guild.id, {
       SEND_MESSAGES: null
     }).then(() => {
       message.channel.send('Lockdown lifted.');
@@ -17,13 +17,13 @@ exports.run = (client, message, args) => {
       console.log(error);
     });
   } else {
-    message.channel.overwritePermissions(message.guild.id, {
+    message.channel.createOverwrite(message.guild.id, {
       SEND_MESSAGES: false
     }).then(() => {
       message.channel.send(`Damnn, **${message.author.username}** just locked the channel down for ${ms(ms(time), { long:true })}`).then(() => {
 
         client.lockit[message.channel.id] = setTimeout(() => {
-          message.channel.overwritePermissions(message.guild.id, {
+          message.channel.createOverwrite(message.guild.id, {
             SEND_MESSAGES: null
           }).then(message.channel.send('Lockdown lifted. WEEEEEEEEEEEEEEEEEEEEEE, enjoy talking while you still can:wink:')).catch(console.error);
           delete client.lockit[message.channel.id];
@@ -39,7 +39,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['tld'],
-  permLevel: 0
+  permLevel: 2
 };
 
 exports.help = {

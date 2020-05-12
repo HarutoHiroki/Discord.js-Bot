@@ -7,7 +7,7 @@ exports.run = async (client, message, args, tools) => {
     .get("https://nekos.life/api/neko");
     link = body.neko;
     
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor("#ff9900")
     .setTitle("Here's Your Neko OwO")
     .setImage(body.neko) 

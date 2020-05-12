@@ -35,7 +35,7 @@ exports.run = async (bot, message, args) => {
     var YES_Count = reactions.get(agree).count;
   }
 
-  var sumsum = new Discord.RichEmbed()
+  var sumsum = new Discord.MessageEmbed()
   
             .addField("Voting Finished:", "----------------------------------------\n" +
                                           "Total votes (Yes): " + `${YES_Count-1}\n` +
@@ -51,7 +51,6 @@ exports.run = async (bot, message, args) => {
   if(YES_Count >= 4 && YES_Count > NO_Count){
 
     kickmember.kick().then(member => {
-      message.reply(`${member.user.username} was succesfully kicked`)
     })
   }else{
 

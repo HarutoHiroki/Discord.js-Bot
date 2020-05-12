@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const customisation = require('../customisation.json');
 
 exports.run = (client, message) => {
-  const embed = new Discord.RichEmbed()
+  const embed = new Discord.MessageEmbed()
   .setColor(Math.floor(Math.random()*16777215))
   .addField('IDEs and Text Editors', 'There are many different ways to edit code, from code' +
                                      ' editors to Integrated Development Environments ("IDEs"). Here are some' +

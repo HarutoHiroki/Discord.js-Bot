@@ -5,7 +5,7 @@ const customisation = require('../customisation.json');
 exports.run = (client, message, args) => {
     randomPuppy('awwnime')
     .then(url => {
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
         .setImage(url)
         .setColor('#ff9900')
         .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);

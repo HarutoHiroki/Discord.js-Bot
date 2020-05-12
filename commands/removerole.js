@@ -1,23 +1,28 @@
 const settings = require('../settings.json');
 exports.run = (client, message, args) => {
-    if (!message.guild.member(client.user).hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return message.reply(":no_entry_sign: **Error:** I don't have the **Manage Roles** permission!");
-    if (!message.member.hasPermission("MANAGE_ROLES_OR_PERMISSIONS")) return message.reply(":no_entry_sign: **Error:** You don't have the **Manage Roles** permission!");
-    if (message.mentions.users.size === 0) return message.reply(":no_entry_sign: Please mention a user to remove the role from.");
+    if (!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("❌**Error:** I don't have the **Manage Roles** permission!");
+    if (message.mentions.users.size === 0) return message.reply("❌Please mention a user to give the role to.\nExample: `addrole @user Members`");
     let member = message.guild.member(message.mentions.users.first());
-    if (!member) return message.reply(":no_entry_sign: **Error:** That user does not seem valid.");
-    let name = message.content.split(" ").splice(2).join(" ");
-    let role = message.guild.roles.find("name", name);
-    member.removeRole(role).catch(e => {
-        message.channel.send(":no_entry_sign: There was an error! It most likely is that the role you are trying to add is higher than the the role I have!");
+    if (!member) return message.reply("❌**Error:** That user does not seem valid.");
+    let rname = message.content.split(" ").splice(2).join(" ");
+    let role = message.guild.roles.cache.find(val => val.name === rname);
+    if (!role) return message.reply(`❌**Error:** ${rname} isn't a role on this server!`);
+    let botRolePosition = message.guild.member(client.user).roles.highest.position;
+    let rolePosition = role.position;
+    let userRolePossition = message.member.roles.highest.position;
+    if (userRolePossition <= rolePosition) return message.channel.send("❌**Error:** Failed to add the role to the user because your role is lower than the specified role.")
+    if (botRolePosition <= rolePosition) return message.channel.send("❌**Error:** Failed to add the role to the user because my highest role is lower than the specified role.");
+    member.roles.remove(role).catch(e => {
+        return message.channel.send(":no_entry_sign: There was an error! It most likely is that the role you are trying to remove is higher than the the role I have!");
     });
-    message.channel.send(`:white_check_mark: **${message.author.username}**, I've removed the **${name}** role from **${message.mentions.users.first().username}**.`);
+    message.channel.send(`<a:balancecheck:556017659419033653> **${message.author.username}**, I've removed the **${role.name}** role from **${message.mentions.users.first().username}**.`);
 }
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["nerf"],
-  permLevel: 0
+  permLevel: 2
 };
 
 exports.help = {

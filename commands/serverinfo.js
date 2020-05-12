@@ -26,28 +26,28 @@ exports.run = (client, message, args) => {
     };
     
     var emojis;
-    if (message.guild.emojis.size === 0) {
+    if (message.guild.emojis.cache.size === 0) {
         emojis = 'None';
     } else {
-        emojis = message.guild.emojis.size;
+        emojis = message.guild.emojis.cache.size;
     }
 
-    const embed = new Discord.RichEmbed()
-  .setAuthor(message.guild.name, message.guild.iconURL ? message.guild.iconURL : client.user.displayAvatarURL)
-  .setThumbnail(message.guild.iconURL)
+    const embed = new Discord.MessageEmbed()
+  .setAuthor(message.guild.name, message.guild.iconURL() ? message.guild.iconURL() : client.user.displayAvatarURL())
+  .setThumbnail(message.guild.iconURL())
   .setTimestamp()
   .addField("Created", `${message.guild.createdAt.toString().substr(0, 15)},\n(${checkDays(message.guild.createdAt)})`, true)
   .addField("ID", message.guild.id, true)
   .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
   .addField("Region", region[message.guild.region], true)
   .addField("User Count", message.guild.memberCount, true)
-  .addField("Member Count", message.guild.members.filter(m => !m.user.bot).size, true)
-  .addField("Bot Count", message.guild.members.filter(m => m.user.bot).size, true)
+  .addField("Member Count", message.guild.members.cache.filter(m => !m.user.bot).size, true)
+  .addField("Bot Count", message.guild.members.cache.filter(m => m.user.bot).size, true)
   .addField("AFK Timeout", message.guild.afkTimeout / 60 + ' minutes', true)
-  .addField("Roles", message.guild.roles.size, true)
-  .addField("Channels", message.guild.channels.size, true)
+  .addField("Roles", message.guild.roles.cache.size, true)
+  .addField("Channels", message.guild.channels.cache.size, true)
   .addField("Emojis", `${emojis}/100`, true)
-  .addField("Verification Level", verifLevels[message.guild.verificationLevel], true)
+  .addField("Verification Level", message.guild.verificationLevel, true)
   .setColor(Math.floor(Math.random()*16777215))
   .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
   message.channel.send({embed});

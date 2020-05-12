@@ -4,7 +4,7 @@ const customisation = require('../customisation.json');
 
 exports.run = (client, message, args) => {
     args = args.join(" ");
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor(Math.floor(Math.random()*16777215))
     .setTimestamp()
     .setTitle("NEP NEP TOP NEP")

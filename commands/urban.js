@@ -11,7 +11,19 @@ exports.run = async (bot, message, args) => {
             if (!json) {
                 return message.channel.send('No such word exist!');
             }
-            const def = new Discord.RichEmbed()
+            let newstr = json.definition.match(/(.|[\r\n]){1,2040}/g);
+            if (newstr.length >= 2){
+                const def = new Discord.MessageEmbed()
+                .setTitle(json.word)
+                .setDescription(newstr[0] + '...')
+                .addField('Upvotes', json.thumbs_up, true)
+                .addField('Downvotes', json.thumbs_down, true)
+                .setTimestamp(new Date())
+                .setFooter(`Written by ${json.author}`);
+
+            message.channel.send(def);
+            }else{
+            const def = new Discord.MessageEmbed()
                 .setTitle(json.word)
                 .setDescription(json.definition)
                 .addField('Upvotes', json.thumbs_up, true)
@@ -20,6 +32,7 @@ exports.run = async (bot, message, args) => {
                 .setFooter(`Written by ${json.author}`);
 
             message.channel.send(def);
+            }
         });
     };
 

@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
       warns: 0
     };
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor(0xFFFF01)
     .setTimestamp()
     .addField('Action:', 'Warn Check')

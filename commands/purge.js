@@ -1,11 +1,13 @@
 exports.run = function(client, message, args) {
-  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("❌**Error:** You don't have the **Manage Messages** permission!");
-  if(!args[0]) return message.reply('Usage: purge all|bots|user|images <amount>')
-  if(!args[1]) return message.channel.send("You need to specify an amount");
-  if(parseInt(args[1]) == NaN) return message.channel.send("You need to specify a valid amount");
+  //if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("❌**Error:** You don't have the **Manage Messages** permission!");
+  if(!args[0]) return message.reply('Usage: purge all|bots|user|author|images <amount>')
   if(args[0] === 'all') {
+    if(!args[1]) return message.channel.send("You need to specify an amount");
+    if(isNaN(args[1])) return message.channel.send("You need to specify a valid amount");
+    if(parseInt(args[1]) > 100) return message.channel.send("I can only delete max 100 messages at a time :wink:")
+
     let messagecount = parseInt(args[1]);
-    message.channel.fetchMessages({
+    message.channel.messages.fetch({
       limit: 100
     }).then(messages => message.channel.bulkDelete(messagecount))
     .catch(e => {
@@ -13,7 +15,11 @@ exports.run = function(client, message, args) {
     })
   }
   else if(args[0] === 'bots') {
-    message.channel.fetchMessages({
+    if(!args[1]) return message.channel.send("You need to specify an amount");
+    if(isNaN(args[1])) return message.channel.send("You need to specify a valid amount");
+    if(parseInt(args[1]) > 100) return message.channel.send("I can only delete max 100 messages at a time :wink:")
+
+    message.channel.messages.fetch({
       limit: args[1]
     }).then(messages => {
       const userMessages = messages.filter(message => message.author.bot) 
@@ -23,10 +29,29 @@ exports.run = function(client, message, args) {
     })
   }
   else if(args[0] === 'user') {
-    message.channel.fetchMessages({
+    if(!args[1]) return message.channel.send("You need to specify an amount");
+    if(isNaN(args[1])) return message.channel.send("You need to specify a valid amount");
+    if(parseInt(args[1]) > 100) return message.channel.send("I can only delete max 100 messages at a time :wink:")
+
+    message.channel.messages.fetch({
       limit: args[1]
     }).then(messages => {
       const userMessages = messages.filter(message => !message.author.bot) 
+      message.channel.bulkDelete(userMessages)
+    }).catch(e => {
+      if(e) return message.channel.send("Error: ", e)
+    })
+  }
+  else if(args[0] === 'author'){
+    if(!message.mention || message.mentions.users.size < 1) return message.channel.send("Ping someone to delete their message!")
+    if(!args[2]) return message.channel.send("You need to specify an amount");
+    if(isNaN(args[2])) return message.channel.send("You need to specify a valid amount");
+    if(parseInt(args[2]) > 100) return message.channel.send("I can only delete max 100 messages at a time :wink:")
+
+    message.channel.messages.fetch({
+      limit: parseInt(args[2])
+    }).then(messages => {
+      const userMessages = messages.filter(message => message.mentions.users.first() || message.author) 
       message.channel.bulkDelete(userMessages)
     }).catch(e => {
       if(e) return message.channel.send("Error: ", e)
@@ -36,7 +61,7 @@ exports.run = function(client, message, args) {
     message.reply("Upcoming feature :wink:")
   }
   else {
-    message.reply('Usage: purge all|bots|user|images <amount>')
+    message.reply('Usage: purge all|bots|user|author <amount>')
   }
 };
 
@@ -44,11 +69,11 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: [],
-  permLevel: 0
+  permLevel: 1
 };
 
 exports.help = {
   name: 'purge',
   description: 'Purges X amount of messages from a given channel.',
-  usage: 'purge all|bots|user|images <amount>'
+  usage: 'purge all|bots|user|author <amount>'
 };

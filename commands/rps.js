@@ -1,5 +1,5 @@
-let rps = ["**:moyai: rock**", "**:pencil: paper**", "**:scissors: scissors**"];
-function random() { return `${rps[Math.floor(Math.random() * rps.length)]}!` }
+let rps = ["**:pencil: paper**", "**:moyai: rock**", "**:scissors: scissors**"];
+function random() { return `${rps[Math.floor(Math.random() * Math.floor(2))]}!` }
 exports.run = (client, msg, args) => {
     let choice = args.join(" ").toLowerCase();
     if (choice === '') return msg.reply("Please specify either rock, paper or scissors.");

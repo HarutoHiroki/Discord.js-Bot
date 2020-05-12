@@ -8,7 +8,7 @@ exports.run = async (client, message, args, tools) => {
     //.get('https://dog.ceo/api/breeds/image/random');
     link = body.url;
     
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor("#ff9900")
     .setTitle("Here's Your Dog")
     .setImage(body.url) 
