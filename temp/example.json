@@ -1,0 +1,10 @@
+{
+    "settings":{
+        "prefix":"/",
+
+        "chatbot":false,
+
+        "channelignorestats": false,
+        "channelignore":"none"
+    }
+}
