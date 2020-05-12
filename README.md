@@ -21,9 +21,11 @@ Made by **HarutoHiroki#4000**
 
 3. To install all needed node modules, do **npm install**
 
-4. Start the bot by having the cmd/terminal inside the bot folder and type **node .**
+4. Install [MongoDB Community Server](https://www.mongodb.com/download-center/community) for coins Database
 
-5. Enjoy!
+5. Start the bot by having the cmd/terminal inside the bot folder and type **node .**
+
+6. Enjoy!
 
 ## (OPTIONAL) Keeping your bot online on a virtual private server
 Want to start hosting your own bot? Well I have one recommended tool for youuuuuuuuuu :D
