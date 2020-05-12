@@ -2,11 +2,12 @@
 An Open Source version of Cryptonix X and a basic frame for any discord.js bot
 
 **(IMPORTANT: Made for discord.js v11, not yet ready for v12)**
+*an updated version will be uploaded here soon in replace of this v11 source*
 
 Made by **HarutoHiroki#4000**
 
 ## Requirements
-- Node.js Recommended 10.15.3 and up - https://nodejs.org/en/download/
+- Node.js Recommended 12.16.0 and up - https://nodejs.org/en/download/
 - git - https://git-scm.com/download/
 - Visual Studio Build tool - `npm install -g --production windows-build-tools`
 
