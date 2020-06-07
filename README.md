@@ -21,7 +21,7 @@ Made by **HarutoHiroki#4000**
 
 3. To install all needed node modules, do **npm install**
 
-4. Install [MongoDB Community Server](https://www.mongodb.com/download-center/community) for coins Database
+4. Install [MongoDB Community Server](https://www.mongodb.com/download-center/community) for coins Database [Tutorial Here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
 5. Start the bot by having the cmd/terminal inside the bot folder and type **node .**
 
