@@ -1,4 +1,4 @@
-const settings = require('./settings.json');
+const settings = require('../settings.json');
 module.exports = guild => {
   let client = guild.client
   let channelID;

@@ -1,6 +1,5 @@
 const chalk = require('chalk');
 const Discord = require("discord.js");
-const activities = require('../data/activities.json');
 const fs = require('fs');
 module.exports = client => {
   client.user.setActivity(`Online and ready to serve ${client.guilds.size} servers.`, { url: 'https://www.twitch.tv/harutohiroki', type: 'STREAMING' })
