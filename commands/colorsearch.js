@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const superagent = require('superagent');
-const sf = require("snekfetch");
+const AlexAPI = require('alexflipnote.js')
+const AlexClient = new AlexAPI()
 const customisation = require('../customisation.json');
 
 exports.run = async (client, message, args) => {
@@ -8,8 +8,7 @@ exports.run = async (client, message, args) => {
   var isOk = /^[0-9A-F]{6}$/i.test(args[0])
   if (isOk === false) return message.reply("Please provide a valid hex code without the #")
   
-  const { body } = await superagent
-  .get(`https://api.alexflipnote.dev/color/` + args[0]);
+  let body = await AlexClient.others.color(args[0])
   
   const embed = new Discord.MessageEmbed()
   .setColor("#ff9900")
