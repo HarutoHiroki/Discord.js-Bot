@@ -1,6 +1,5 @@
 const Discord  = require('discord.js');
 const customisation = require('../customisation.json');
-const integer = require('integer')
 
 const agree    = "✅";
 const disagree = "❎";
