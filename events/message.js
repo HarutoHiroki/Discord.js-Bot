@@ -25,9 +25,9 @@ module.exports = async message => {
       if(message.content.startsWith(prefix)){
         let command = message.content.split(' ')[0].slice(prefix.length);
         if (client.commands.has(command)) {
-          if(!message.content.startsWith(prefix + "settings")) return message.channel.send("Please run /settings to set up the bot first!")
+          if(!message.content.startsWith(prefix + "settings")) return message.channel.send(`Please run ${alt.prefix}settings to set up the bot first!`)
         } else if (client.aliases.has(command)) {
-          if(!message.content.startsWith(prefix + "settings")) return message.channel.send("Please run /settings to set up the bot first!")
+          if(!message.content.startsWith(prefix + "settings")) return message.channel.send(`Please run ${alt.prefix}settings to set up the bot first!`)
         }
       }
       let command = message.content.split(' ')[0].slice(prefix.length);
@@ -41,12 +41,12 @@ module.exports = async message => {
       }
       if (cmd) {
         if (perms < cmd.conf.permLevel) {
-          console.log("Command: /" + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
+          console.log(`Command: ${alt.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
           return;
         }
         
         cmd.run(client, message, params, perms);
-        console.log("Command: /" + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
+        console.log(`Command: ${alt.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
         if (message.author.id !== "242263403001937920"){
           if(cd.has(message.author.id)){
             message.delete();
@@ -148,11 +148,11 @@ module.exports = async message => {
       }
       if (cmd) {
         if (perms < cmd.conf.permLevel) {
-          console.log("Command: /" + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
+          console.log(`Command: ${settings.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
           return;
         }
         cmd.run(client, message, params, perms);
-        console.log("Command: /" + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
+        console.log(`Command: ${settings.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
         if (message.author.id !== config.ownerid){
           if(cd.has(message.author.id)){
             message.delete();
