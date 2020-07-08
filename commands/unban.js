@@ -20,19 +20,13 @@ exports.run = (client, message, args) => {
       .addField('Reason', reason)
       .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
 
-    const settings = require("../models/settings.js")
-    settings.findOne({
-      guildID: message.guild.id
-    }, (err, settings) =>{
-      let logs = settings.logs
-      let logchannel = settings.logchannel;
-      if  (logs == true && logchannel !== 'none'){
-        message.channel.send(`${client.users.cache.get(`${args[0]}`).username}#${client.users.cache.get(`${args[0]}`).discriminator} has been unbanned. Also I've logged it in <#${logchannel}>.`)
-        if(client.channels.cache.get(logchannel)) client.channels.cache.get(logchannel).send({embed});
+      let logchannel = message.guild.channels.cache.find(x => x.name = 'logs');
+      if  (!logchannel){
+      message.channel.send({embed})
       }else{
-        return message.channel.send(`${client.users.cache.get(`${args[0]}`).username}#${client.users.cache.get(`${args[0]}`).discriminator} has been unbanned`);
+        client.channels.get(logchannel.id).send({embed});
+        message.channel.send({embed})
       }
-    })
   })
 };
 

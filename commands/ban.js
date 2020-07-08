@@ -31,7 +31,7 @@ exports.run = (client, message, args) => {
       if(e) return
     });
     message.guild.members.ban(user.id, {days:7, reason: reason})
-    let logchannel = message.guild.channels.find('name', 'logs');
+    let logchannel = message.guild.channels.cache.find(x => x.name = 'logs');
     if  (!logchannel){
     message.channel.send({embed})
     }else{

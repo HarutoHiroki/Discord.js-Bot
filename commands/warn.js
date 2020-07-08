@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
-  //let logchannel = message.guild.channels.find('name', 'logs');
+  //let logchannel = message.guild.channels.cache.find(x => x.name = 'logs');
   if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("❌**Error:** You don't have the **Kick Members** permission!");
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to warn them.').catch(console.error);
   if (message.mentions.users.first().id === message.author.id) return message.reply('I can\' let you do that, self-harm is bad:facepalm:');
@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
   .addField('Number of warnings:', warns[`${user.id}, ${message.guild.id}`].warns)
   .addField('Reason', reason)
   .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
-  let logchannel = message.guild.channels.find('name', 'logs');
+  let logchannel = message.guild.channels.cache.find(x => x.name = 'logs');
   if  (!logchannel){
     message.channel.send({embed})
   }else{
