@@ -9,11 +9,11 @@ exports.run = async (client, message, args) => {
   if(message.author.id === message.mentions.users.first()) return message.reply("You can't mute yourself:facepalm:");
   if (!muteRole) {
     try {
-        muteRole = await message.guild.roles.create({
+        muteRole = await message.guild.roles.create({ data: {
             name:"Muted",
             color: "#000000",
             permissions:[]
-        });
+        }});
 
         message.guild.channels.cache.forEach(async (channel, id) => {
             await channel.createOverwrite(muteRole, {
