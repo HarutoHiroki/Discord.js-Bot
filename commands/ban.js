@@ -35,7 +35,7 @@ exports.run = (client, message, args) => {
     if  (!logchannel){
     message.channel.send({embed})
     }else{
-      client.channels.get(logchannel.id).send({embed});
+      client.channels.cache.get(logchannel.id).send({embed});
       message.channel.send({embed})
     } 
     if(user.bot) return;

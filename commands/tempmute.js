@@ -10,11 +10,11 @@ exports.run = async (client, message, args) => {
     let muteRole = message.guild.roles.cache.find(val => val.name === "Muted");
     if (!muteRole) {
         try {
-            muteRole = await message.guild.roles.create({
+            muteRole = await message.guild.roles.create({data:{
                 name:"Muted",
                 color: "#000000",
                 permissions:[]
-            });
+            }});
     
             message.guild.channels.cache.forEach(async (channel, id) => {
                 await channel.createOverwrite(muteRole, {

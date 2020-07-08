@@ -28,19 +28,13 @@ exports.run = (client, message, args) => {
   message.guild.members.ban(user.id, {days:7, reason: reason});
   message.guild.members.unban(user.id, reason);
 
-  const settings = require("../models/settings.js")
-  settings.findOne({
-    guildID: message.guild.id
-  }, (err, settings) =>{
-    let logs = settings.logs
-    let logchannel = settings.logchannel;
-    if  (logs == true && logchannel !== 'none'){
-      message.channel.send(`:hammer: Done. <@${user.id}> has been Softbanned. Also I've logged the ban in <#${logchannel}>.`)
-      if(client.channels.cache.get(logchannel)) client.channels.cache.get(logchannel).send({embed});
-    }else{
-      return message.channel.send(`:hammer: Done. You don't have to worry about that shit head anymore, I have banned them!`)
-    }
-  })
+  let logchannel = message.guild.channels.cache.find(x => x.name = 'logs');
+  if  (!logchannel){
+    message.channel.send({embed})
+  }else{
+    client.channels.cache.get(logchannel.id).send({embed});
+    message.channel.send({embed})
+  }
 };
 
 exports.conf = {
