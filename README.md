@@ -15,17 +15,13 @@ Made by **HarutoHiroki#4000**
 
 ## How to setup
 1. Make a bot [here](https://discordapp.com/developers/applications/me) and grab the token
-![Image_Example1](https://i.imgur.com/61akydu.png)
-
-2. Fill in the required spots, such as token, prefix and change anything you like in **config.json** and **customisation.json**.
-
-3. To install all needed node modules, do **npm install**
-
-4. Install [MongoDB Community Server](https://www.mongodb.com/download-center/community) for coins Database and settings. [Tutorial Here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
-
-5. Start the bot by having the cmd/terminal inside the bot folder and type **node .**
-
-6. Enjoy!
+![Image_Example1](https://i.imgur.com/61akydu.png)<br>
+2. Fill in the required spots, such as token, prefix and change anything you like in **config.json** and **customisation.json**.<br>
+3. To install all needed node modules, do **npm install**<br>
+4. Install [MongoDB Community Server](https://www.mongodb.com/download-center/community) for coins Database and settings. [Tutorial Here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)<br>
+5. Start the bot by having the cmd/terminal inside the bot folder and type **node .**<br>
+6. In setup you need to first do `[prefix]settings template` to get the template. Then you need to edit it and upload it to discord as an attachment with the command `[prefix]settings upload`<br>
+7. Enjoy!
 
 ## (OPTIONAL) Keeping your bot online on a virtual private server
 Want to start hosting your own bot? Well I have one recommended tool for youuuuuuuuuu :D
