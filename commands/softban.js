@@ -4,8 +4,6 @@ exports.run = (client, message, args) => {
   let reason = args.slice(1).join(' ');
   if (!message.mentions.users.first()) return message.reply("You need to Mention someone to soft ban them!");
   let user = message.mentions.users.first();
-  let logchannel = message.guild.channels.cache.find(val => val.name === 'logs');
-  if (!logchannel) return message.reply('I cannot find a logs channel');
   //if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply(":no_entry_sign: **Error:** You don't have the **Ban Members** permission!");
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to soft ban them.').catch(console.error);
   if (message.mentions.users.first().id === message.author.id) return message.reply('I can\' let you do that, self-harm is bad:facepalm:');
