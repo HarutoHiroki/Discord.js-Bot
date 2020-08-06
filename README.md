@@ -1,6 +1,6 @@
 # JS-Discord-Bot
 An Open Source version of Cryptonix X and a basic frame for any discord.js bot. Integrates MongoDB as a solution for database!
-
+[Support Server](https://discord.gg/sjtcnRb)
 ## Updated for Discord.js V12 *woohoo*
 
 Made by **HarutoHiroki#4000**
