@@ -5,6 +5,6 @@
         "chatbot": true|false,
 
         "channelignorestats": true|false,
-        "channelignore": "ChannelID_1,ChannelID_2,ChannelID_3,...",
+        "channelignore": "ChannelID_1,ChannelID_2,ChannelID_3,..."
     }
 }
