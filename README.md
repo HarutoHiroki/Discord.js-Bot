@@ -16,7 +16,7 @@ Made by **HarutoHiroki#4000**
 ## How to setup
 1. Make a bot [here](https://discordapp.com/developers/applications/me) and grab the token
 ![Image_Example1](https://i.imgur.com/61akydu.png)<br>
-2. Fill in the required spots, such as token, prefix and change anything you like in **config.json** and **customisation.json**.<br>
+2. Fill in the required spots, such as token, prefix and change anything you like in **settings.json** and **customisation.json**.<br>
 3. To install all needed node modules, do **npm install**<br>
 4. Install [MongoDB Community Server](https://www.mongodb.com/download-center/community) for coins Database and settings. [Tutorial Here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)<br>
 5. Start the bot by having the cmd/terminal inside the bot folder and type **node .**<br>
