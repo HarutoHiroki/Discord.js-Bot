@@ -6,7 +6,7 @@ exports.run = function(client, message, args) {
     if(isNaN(args[1])) return message.channel.send("You need to specify a valid amount");
     if(parseInt(args[1]) > 100) return message.channel.send("I can only delete max 100 messages at a time :wink:")
 
-    let messagecount = parseInt(args[1]);
+    let messagecount = parseInt(args[1]) + 1;
     message.channel.messages.fetch({
       limit: 100
     }).then(messages => message.channel.bulkDelete(messagecount))
