@@ -20,7 +20,7 @@ exports.run = function(client, message, args) {
     if(parseInt(args[1]) > 100) return message.channel.send("I can only delete max 100 messages at a time :wink:")
 
     message.channel.messages.fetch({
-      limit: args[1]
+      limit: args[1] + 1
     }).then(messages => {
       const userMessages = messages.filter(message => message.author.bot) 
       message.channel.bulkDelete(userMessages)
@@ -34,7 +34,7 @@ exports.run = function(client, message, args) {
     if(parseInt(args[1]) > 100) return message.channel.send("I can only delete max 100 messages at a time :wink:")
 
     message.channel.messages.fetch({
-      limit: args[1]
+      limit: args[1] + 1
     }).then(messages => {
       const userMessages = messages.filter(message => !message.author.bot) 
       message.channel.bulkDelete(userMessages)
@@ -49,7 +49,7 @@ exports.run = function(client, message, args) {
     if(parseInt(args[2]) > 100) return message.channel.send("I can only delete max 100 messages at a time :wink:")
 
     message.channel.messages.fetch({
-      limit: parseInt(args[2])
+      limit: parseInt(args[2]) + 1
     }).then(messages => {
       const userMessages = messages.filter(message => message.mentions.users.first() || message.author) 
       message.channel.bulkDelete(userMessages)
