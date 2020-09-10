@@ -39,37 +39,12 @@ exports.run = (client, message, args) => {
         coins.coins = curBal2 + money
         coins.save()
         message.channel.send(`🎲 | GGWP! **${message.author.username}**, You won **${money}**<:coin:706443785546235966> in addition to what you had. 🎉`);
-      } else if (random == 10) { // win
+      } else if (random == 10 || random == 15 || random == 20 || random == 25 || random == 30) { // win
         money = money * 2.50
         let curBal2 = parseInt(coins.coins)
         coins.coins = curBal2 + money
         coins.save()
         message.channel.send(`🎲 | GGWP! **${message.author.username}**, You won **${money}**<:coin:706443785546235966> in addition to what you had. 🎉`);
-      } else if (random == 15) { // Win
-        money = money * 2.50
-        let curBal3 = parseInt(coins.coins)
-        coins.coins = curBal3 + money
-        coins.save()
-        message.channel.send(`🎲 | GGWP! **${message.author.username}**, You won **${money}**<:coin:706443785546235966> in addition to what you had. 🎉`);
-      } else if (random == 20) { // win
-        money = money * 2.50
-        let curBal4 = parseInt(coins.coins)
-        coins.coins = curBal4 + money
-        coins.save()
-        message.channel.send(`🎲 | GGWP! **${message.author.username}**, You won **${money}**<:coin:706443785546235966> in addition to what you had. 🎉`);
-      } else if (random == 25) { // Win
-        money = money * 2.50
-        let curBal3 = parseInt(coins.coins)
-        coins.coins = curBal3 + money
-        coins.save()
-        message.channel.send(`🎲 | GGWP! **${message.author.username}**, You won **${money}**<:coin:706443785546235966> in addition to what you had. 🎉`);
-      } else if (random == 30) { // Win
-        money = money * 2.50
-        let curBal3 = parseInt(coins.coins)
-        coins.coins = curBal3 + money
-        coins.save()
-        message.channel.send(`🎲 | GGWP! **${message.author.username}**, You won **${money}**<:coin:706443785546235966> in addition to what you had. 🎉`);
-  
       } else { // Lost
         let curBal5 = parseInt(coins.coins)
         coins.coins = curBal5 - money;
