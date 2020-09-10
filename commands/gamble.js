@@ -1,3 +1,4 @@
+const mongoose = require("mongoose")
 exports.run = (client, message, args) => {
   const Coins = require('../models/coins.js')
   let user = message.author
