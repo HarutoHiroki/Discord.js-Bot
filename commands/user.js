@@ -10,7 +10,7 @@ function checkDays(date) {
 exports.run = async (client, message, args) => {
   let user = message.mentions.users.first();
   let muser = message.guild.member(message.mentions.users.first());
-  if(!message.mentions.users.first() && args.lenth > 0){
+  if(!message.mentions.users.first() && args.length > 0){
     user = message.guild.member(args[0]).user
     muser = message.guild.member(args[0]);
   }
