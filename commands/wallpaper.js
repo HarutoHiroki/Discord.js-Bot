@@ -5,6 +5,7 @@ const customisation = require('../customisation.json');
 exports.run = async (client, message, args, tools) => {
     const { body } = await superagent
     .get("https://nekos.life/api/v2/img/wallpaper");
+    if(!message.channel.nsfw) return message.reply("NSFW is not enabled in this channel");
     
     const embed = new Discord.MessageEmbed()
     .setColor("#ff9900")
