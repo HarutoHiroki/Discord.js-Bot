@@ -9,7 +9,7 @@
   "author": "HarutoHiroki",
   "license": "MIT",
   "dependencies": {
-    "alexflipnote.js": "^1.2.1",
+    "alexflipnote.js": "^1.2.5",
     "axios": "^0.18.0",
     "chalk": "^2.4.2",
     "child_process": "^1.0.2",
