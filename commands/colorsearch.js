@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const AlexAPI = require('alexflipnote.js')
-const AlexClient = new AlexAPI()
+const settings = require('../settings.json');
+const AlexClient = new AlexAPI(settings.apitoken);
 const customisation = require('../customisation.json');
 
 exports.run = async (client, message, args) => {
