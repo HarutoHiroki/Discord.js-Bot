@@ -20,7 +20,7 @@ Made by **HarutoHiroki#4000**
 3. To install all needed node modules, do **npm install**<br>
 4. Install [MongoDB Community Server](https://www.mongodb.com/download-center/community) for coins Database and settings. [Tutorial Here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)<br>
 5. Start the bot by having the cmd/terminal inside the bot folder and type **node .**<br>
-6. In setup you need to first do `[prefix]settings template` to get the template. Then you need to edit it and upload it to discord as an attachment with the command `[prefix]settings upload`<br>
+6. In setup you need to first do `[prefix]settings template` to get the template. Then you need to edit it and upload it to discord as an attachment with the command `[prefix]settings upload` (these settings are different from settings.json from Step 1<br>
 7. Enjoy!
 
 ## Common "Errors"
