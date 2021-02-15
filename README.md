@@ -18,10 +18,12 @@ Made by **HarutoHiroki#4000**
 ![Image_Example1](https://i.imgur.com/61akydu.png)<br>
 2. Fill in the required spots, such as token, prefix and change anything you like in **settings.json** and **customisation.json**.<br>
 3. To install all needed node modules, do **npm install**<br>
-4. Install [MongoDB Community Server](https://www.mongodb.com/download-center/community) for coins Database and settings. [Tutorial Here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)<br>
-5. Start the bot by having the cmd/terminal inside the bot folder and type **node .**<br>
-6. In setup you need to first do `[prefix]settings template` to get the template. Then you need to edit it and upload it to discord as an attachment with the command `[prefix]settings upload` (these settings are different from settings.json from Step 1<br>
-7. Enjoy!
+4. Make a [MongoDB Atlus Account](https://account.mongodb.com/account/register) for coins Database and settings.
+5. Fill in the URL for the MongoDB Database [Tutorial](https://imgur.com/a/jVPLHhp)<br>
+6. Get the AlexFlipnote's API Key for image commands and fill in the blank [Read More Here](https://www.npmjs.com/package/alexflipnote.js)<br>
+7. Start the bot by double clicking on the `start.bat` file<br>
+8. In setup you need to first do `[prefix]settings template` to get the template. Then you need to edit it and upload it to discord as an attachment with the command `[prefix]settings upload` (these settings are different from settings.json from Step 1, if you need an example json file do `[prefix]settings example`)<br>
+9. Enjoy!
 
 ## Common "Errors"
 `UnhandledPromiseRejectionWarning: SyntaxError: Unexpected token | in JSON at position 69420` - well to solve this compare the json file you're trying to upload to the [example.json](https://github.com/HarutoHiroki/Discord.js-Bot/blob/master/temp/example.json) file included in the code and see whats wrong there.

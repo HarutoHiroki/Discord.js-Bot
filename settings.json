@@ -1,6 +1,7 @@
 {
-	"ownerid": "242263403001937920",
+	"ownerid": "Your User ID",
 	"prefix": "/",
-	"token": "",
-	"apitoken": ""
+	"token": "See Step 2",
+	"apitoken": "See Step 6",
+	"mongodbURL": "See Step 5"
 }

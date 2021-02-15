@@ -48,7 +48,7 @@ client.reload = command => {
   });
 };
 
-mongoose.connect('mongodb://localhost:27017/DiscordDB', { useNewUrlParser: true, useUnifiedTopology: true   }, err => {
+mongoose.connect(settings.mongodbURL, { useNewUrlParser: true, useUnifiedTopology: true   }, err => {
     if (err) return console.error(err);
     console.log(chalk.bgGreen.black('Connected to MongoDB database!'));
 });
