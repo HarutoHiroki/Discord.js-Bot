@@ -28,8 +28,7 @@ fs.readdir('./commands/', (err, files) => {
 });
 
 //command reload
-client.reload = command => {
-  return new Promise((resolve, reject) => {
+client.reload = async (command) => {
     try {
       delete require.cache[require.resolve(`./commands/${command}`)];
       let cmd = require(`./commands/${command}`);
@@ -41,11 +40,9 @@ client.reload = command => {
       cmd.conf.aliases.forEach(alias => {
         client.aliases.set(alias, cmd.help.name);
       });
-      resolve();
     } catch (e){
-      reject(e);
+      console.error(e);
     }
-  });
 };
 
 mongoose.connect(settings.mongodbURL, { useNewUrlParser: true, useUnifiedTopology: true   }, err => {
