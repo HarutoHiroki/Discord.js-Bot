@@ -30,8 +30,8 @@ module.exports = async message => {
           if(!message.content.startsWith(prefix + "settings")) return message.channel.send(`Please run ${alt.prefix}settings to set up the bot first!`)
         }
       }
-      let command = message.content.split(' ')[0].slice(prefix.length);
-      let params = message.content.split(' ').slice(1);
+      let params = message.content.slice(prefix.length).split(/\s+/);
+      let command = params.shift();
       let perms = client.elevation(message);
       let cmd;
       if (client.commands.has(command)) {
