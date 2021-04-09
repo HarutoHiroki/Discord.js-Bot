@@ -71,4 +71,11 @@ client.elevation = message => {
 //  console.log(e.replace(regToken, 'that was redacted'));
 //});
 
+var log_file_err=fs.createWriteStream(__dirname + '/error.log',{flags:'a'});  
+
+process.on('uncaughtException', function(err) {
+console.log('Caught exception: ' + err);
+log_file_err.write(util.format('Caught exception: '+err) + '\n');
+});
+
 client.login(settings.token);
