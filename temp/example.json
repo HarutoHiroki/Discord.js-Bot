@@ -1,9 +1,7 @@
 {
     "settings":{
-        "prefix":"/",
-
-        "chatbot":false,
-
+        "prefix": "/",
+        "chatbot": false,
         "channelignorestats": false,
         "channelignore":"none"
     }
