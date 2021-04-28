@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const customisation = require('../customisation.json');
 const config = require("../settings.json")
-exports.run = async (client, message, args, findUser) => {
+exports.run = async (client, message, args) => {
   if (message.author.id !== config.ownerid) return message.reply("You don't have the permission to use this command...:facepalm:");
 	if (!args[0]) return message.reply("Valid args are: [on/off] [user]");
 		let bl = false;

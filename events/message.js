@@ -97,7 +97,6 @@ module.exports = async message => {
           })
         }
       }
-      const Coins = require('../models/coins.js');
 
       function generatecoins(){
         return Math.floor(Math.random() * 15) + 1
@@ -134,26 +133,8 @@ module.exports = async message => {
 
         }
       }
-	async function findUser(search){
-		let user = null;
-		if(!search || typeof search !== "string") return;
-		// Try ID search
-		if(search.match(/^<@!?(\d+)>$/)){
-			const id = search.match(/^<@!?(\d+)>$/)[1];
-			user = this.users.cache.fetch(id).catch(() => {});
-			if(user) return user;
-		}
-		// Try username search
-		if(search.match(/^!?(\w+)#(\d+)$/)){
-			const username = search.match(/^!?(\w+)#(\d+)$/)[0];
-			const discriminator = search.match(/^!?(\w+)#(\d+)$/)[1];
-			user = this.users.find((u) => u.username === username && u.discriminator === discriminator);
-			if(user) return user;
-		}
-		user = await this.users.fetch(search).catch(() => {});
-		return user;
-	}
-      if (!message.content.startsWith(prefix)) return;  
+
+      if (!message.content.startsWith(prefix)) return;
       let command = message.content.split(' ')[0].slice(prefix.length);
       let params = message.content.split(' ').slice(1);
       let perms = client.elevation(message);
