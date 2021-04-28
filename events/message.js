@@ -75,27 +75,9 @@ module.exports = async message => {
           }
         }
       }
+
       if(message.content.startsWith(`<@${client.user.id}>`) || message.content.startsWith(`<@!${client.user.id}>`)){
         if(message.content.includes('prefix')) return message.reply(`My current prefix is ${settings.prefix}`)
-        if(settings.chatbot == true){
-          message.channel.startTyping();
-          //message.reply("I Hear You!")
-          let string = message.content.split(' ').slice(1).join("%20");
-          //console.log(string)
-          const { body } = await superagent
-            .get("https://some-random-api.ml/chatbot?message=" + string)
-            .catch(e => {
-              if(e){
-                message.channel.stopTyping();
-                return message.channel.send(`The API made a fucky wucky and broke! \n\`Error: ${e}\``)
-              }
-            })
-          message.reply(body.response)
-          .then(message => {
-            message.channel.stopTyping();
-            return;
-          })
-        }
       }
 
       function generatecoins(){

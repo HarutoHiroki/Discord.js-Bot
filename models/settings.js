@@ -3,7 +3,6 @@ settingSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     guildID: String,
     prefix: String,
-    chatbot: Boolean,
     channelignorestats: Boolean,
     channelignore: String,
 });
