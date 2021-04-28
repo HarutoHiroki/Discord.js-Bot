@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
         if(!message.attachments.first() || message.attachments.first().name.split('.').pop() !== 'json'){
             return message.reply("Please attach a proper .json file")
         }else{
-        
+
         const file = fs.createWriteStream(`./temp/${message.guild.id}.json`);
         const request = https.get(message.attachments.first().url, async function(response) {
             await response.pipe(file);
@@ -30,14 +30,6 @@ exports.run = async (client, message, args) => {
                     if(!setting['settings'].prefix || setting['settings'].prefix.lenth > 21){
 				    	message.reply('Please enter a prefix with a length between 1 and 20')
 				    	return fs.unlinkSync(`./temp/${message.guild.id}.json`)
-                    }
-
-                    if(setting['settings'].chatbot == undefined){
-                        message.reply('Please enter a proper Chat Bot Status')
-			    		return fs.unlinkSync(`./temp/${message.guild.id}.json`)
-                    }else if(setting['settings'].chatbot !== true && setting['settings'].chatbot !== false){
-                        message.reply('Please enter a proper Chat Bot Status')
-			    		return fs.unlinkSync(`./temp/${message.guild.id}.json`)
                     }
 
                     if(setting['settings'].channelignorestats == undefined){
@@ -76,9 +68,7 @@ exports.run = async (client, message, args) => {
                             _id: mongoose.Types.ObjectId(),
                             guildID: message.guild.id,
                             prefix: setting['settings'].prefix,
-                            
-                            chatbot: setting['settings'].chatbot,
-                                           
+
                             channelignorestats: setting["settings"].channelignorestats,
                             channelignore: cnid,
 
@@ -97,8 +87,6 @@ exports.run = async (client, message, args) => {
 
                         settings.prefix = setting['settings'].prefix,
 
-                        settings.chatbot = setting['settings'].chatbot,
-                                       
                         settings.channelignorestats = setting["settings"].channelignorestats,
                         settings.channelignore = cnid,
 
@@ -126,8 +114,6 @@ exports.run = async (client, message, args) => {
                 let dict = {
                     "settings":{
                         "prefix": settings.prefix,
-                        
-                        "chatbot": settings.chatbot,
 
                         "channelignorestats": settings.channelignorestats,
                         "channelignore": settings.channelignore
