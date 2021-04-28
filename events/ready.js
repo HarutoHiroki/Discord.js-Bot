@@ -8,14 +8,15 @@ module.exports = client => {
   },60000);
 
   console.log(chalk.bgGreen.black(`Online and ready to serve ${client.guilds.cache.size} servers.`));
-  let blacklist = JSON.parse(fs.readFileSync("./blacklist.json", "utf8"));
+
   client.guilds.cache.forEach((guild) => {
-    if (!blacklist[guild.ownerID]) {
-      return;
-    }else{
-      if(blacklist[guild.ownerID].state === true) {
+  const userData = require("../models/User.js");
+  userData.findOne({
+    userID: guild.ownerID,
+  }, async (err, blacklist) => {
+    if (blacklist === true){
         message.guild.leave(guild.id)
-      }
-    }
-  })
-};
+    	}
+    })
+});
+}

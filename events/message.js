@@ -3,18 +3,22 @@ const config = require('../settings.json');
 const fs = require("fs");
 const superagent = require('superagent');
 const mongoose = require('mongoose');
+  let cd = new Set();
+  let cdseconds = 5;
 module.exports = async message => {
+  let client = message.client;
   if(message.channel.type === "dm") return;
   if(message.author.bot) return;
 
-  let cd = new Set();
-  let cdseconds = 5;
-  
-  let client = message.client;
-  let blacklist = JSON.parse(fs.readFileSync("./blacklist.json", "utf8"));
+
+  const userData = require("../models/User.js");
+  userData.findOne({
+    userID: message.author.id,
+  }, async (err, blacklist) => {
+    if (blacklist === 1) return;
+    })
 
   const settings = require("../models/settings.js");
-
   settings.findOne({
     guildID: message.guild.id
   }, async (err, settings) => {
@@ -44,10 +48,10 @@ module.exports = async message => {
           console.log(`Command: ${alt.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
           return;
         }
-        
+
         cmd.run(client, message, params, perms);
         console.log(`Command: ${alt.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
-        if (message.author.id !== "242263403001937920"){
+        if (message.author.id !== config.ownerid){
           if(cd.has(message.author.id)){
             message.delete();
             return message.reply("This command is for cooldown for 5 sec")
@@ -58,7 +62,7 @@ module.exports = async message => {
       setTimeout(() => {
         cd.delete(message.author.id)
       }, cdseconds * 1000)
-      
+
     }else{
       let prefix = settings.prefix;
 
@@ -71,37 +75,10 @@ module.exports = async message => {
           }
         }
       }
-      
-      if (!blacklist[message.author.id]) {
-        blacklist[message.author.id] = {state: false}
-      };
-
-      if (blacklist[message.author.id].state === true) return;
 
       if(message.content.startsWith(`<@${client.user.id}>`) || message.content.startsWith(`<@!${client.user.id}>`)){
         if(message.content.includes('prefix')) return message.reply(`My current prefix is ${settings.prefix}`)
-        if(settings.chatbot == true){
-          message.channel.startTyping();
-          //message.reply("I Hear You!")
-          let string = message.content.split(' ').slice(1).join("%20");
-          //console.log(string)
-          const { body } = await superagent
-            .get("https://some-random-api.ml/chatbot?message=" + string)
-            .catch(e => {
-              if(e){
-                message.channel.stopTyping();
-                return message.channel.send(`The API made a fucky wucky and broke! \n\`Error: ${e}\``)
-              }
-            })
-          message.reply(body.response)
-          .then(message => {
-            message.channel.stopTyping();
-            return;
-          })
-        }
       }
-
-      const Coins = require('../models/coins.js');
 
       function generatecoins(){
         return Math.floor(Math.random() * 15) + 1
@@ -112,6 +89,8 @@ module.exports = async message => {
       }
       if (!message.content.startsWith(prefix)){
         if (parseInt(getRandomInt(4)) == 3) {
+      const Coins = require('../models/coins.js');
+
         Coins.findOne({
           userID: message.author.id,
         }, (err, coins) => {
@@ -124,7 +103,7 @@ module.exports = async message => {
                   lastdaily: Math.round((new Date()).getTime() / 1000),
                   streak: 0
               });
-            
+
               newCoins.save()
                   .catch(err => console.error(err));
           }else{
@@ -133,10 +112,11 @@ module.exports = async message => {
                   .catch(err => console.error(err));
           }
           })
+
         }
       }
 
-      if (!message.content.startsWith(prefix)) return;  
+      if (!message.content.startsWith(prefix)) return;
       let command = message.content.split(' ')[0].slice(prefix.length);
       let params = message.content.split(' ').slice(1);
       let perms = client.elevation(message);
@@ -151,7 +131,7 @@ module.exports = async message => {
           console.log(`Command: ${settings.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
           return;
         }
-        cmd.run(client, message, params, perms);
+        cmd.run(client, message, params, perms, findUser);
         console.log(`Command: ${settings.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
         if (message.author.id !== config.ownerid){
           if(cd.has(message.author.id)){
@@ -167,4 +147,4 @@ module.exports = async message => {
       }, cdseconds * 5000)
     }
   })
-};
+}

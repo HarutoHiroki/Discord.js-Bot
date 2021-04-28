@@ -65,12 +65,6 @@ client.elevation = message => {
   return permlvl;
 };
 
-//ping log 
-//var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
-//client.on('debug', e => {
-//  console.log(e.replace(regToken, 'that was redacted'));
-//});
-
 var log_file_err=fs.createWriteStream(__dirname + '/error.log',{flags:'a'});  
 
 process.on('uncaughtException', function(err) {

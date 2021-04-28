@@ -1,43 +1,54 @@
+const mongoose = require('mongoose');
 const Discord = require("discord.js");
 const fs = require('fs');
 const customisation = require('../customisation.json');
-
+const config = require("../settings.json")
 exports.run = async (client, message, args) => {
-  if (!message.author.id === '242263403001937920') return message.reply("You don't have the permission to use this command...:facepalm:");
-    //message.delete();
-    let blacklist = JSON.parse(fs.readFileSync("./blacklist.json", "utf8"));
-    let user = args[0];
-    const amount = parseInt(user);
+  if (message.author.id !== config.ownerid) return message.reply("You don't have the permission to use this command...:facepalm:");
+	if (!args[0]) return message.reply("Valid args are: [on/off] [user]");
+		let bl = false;
+		const user = message.mentions.members.first() || client.users.cache.get(args[1]);
 
-    if (isNaN(amount)) {
-        return message.reply('Please enter a valid UserID');
-    }
-    if (!user) return message.reply('You need to imput a User ID');
-    if (args[0] === '242263403001937920') return message.reply("You can't blacklist yourself, Dev:joy: That would be horrible.");
+		if(!user){
+			return message.reply("Thats not a valid user! :facepalm:");
+		}
+		if(user.id === message.author.id){
+			return message.reply("Congrats, You're blacklistedn't, lol.");
+		}
+		let status = args[0];
+		if(!status || status !== "on" && status !== "off"){
+ 			return message.channel.send("what are you trying to set their blacklist status to? `on` or `off`? :facepalm:");
+		};
+		if (status === "on") bl = true;
 
-    if (!blacklist[user]) {
-        blacklist[user] = {
-          id: user,
-          state: true
-        }
-        message.reply(`<@${user}> is now Blacklisted!`);    
-        fs.writeFile("./blacklist.json", JSON.stringify(blacklist), err => {
-            if(err) throw err;
-          });
-        
-        client.guilds.forEach((guild) => {
-        if(guild.ownerID === user) {
-          message.guild.leave(guild.id)
-        }
-    })
-
-    return;
-    }
-    if (blacklist[user].state === true) {
-        message.reply("That user have already been blacklisted");
-    return;
-    };
-
+	let userDataScheme = require('../models/User.js');
+        userDataScheme.findOne({
+          userID: user.id
+        }, async(err, blacklist) => {
+          if (err) console.error(err);
+          if (!blacklist) {
+              const newBlacklist = new userDataScheme({
+                  _id: mongoose.Types.ObjectId(),
+                  userID: user.id,
+                  blacklist: bl,
+              });
+              newBlacklist.save()
+                  .catch(err => console.error(err));
+          }else{
+		if(status === "on"){
+              blacklist.blacklist = true;
+              await blacklist.save()
+                  .catch(err => console.error(err));
+		message.reply("That user has been blacklisted.");
+			return;
+          	}else if(status === "off"){
+				blacklist.blacklist = false;
+				await blacklist.save();
+				message.reply("That user has been unblacklisted.");
+			}
+		return;
+}
+})
 }
 
 exports.conf = {
@@ -46,7 +57,7 @@ exports.conf = {
     aliases: [],
     permLevel: 5
   };
-  
+
 exports.help = {
     name: 'blacklist',
     description: 'blacklist a user.',
