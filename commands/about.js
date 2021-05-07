@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
-exports.run = (client, msg, args) => {
+exports.run = (client, msg, args, customisation) => {
   msg.delete();
   const embed = new Discord.MessageEmbed()
   .setColor(0xFFFF00)

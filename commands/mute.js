@@ -1,11 +1,10 @@
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
   let reason = args.slice(1).join(' ');
   if(!message.mentions.users.first())return message.reply("Please mention someone to mute them")
   let user = message.mentions.users.first();
   let muteRole = client.guilds.cache.get(message.guild.id).roles.cache.find(val => val.name === 'Muted');
-  if(message.mentions.users.first().id === "242263403001937920") return message.reply('You can\'t mute him you pleblord.:facepalm:')
+  if(message.mentions.users.first().id === customisation.ownerid) return message.reply('You can\'t mute him you pleblord.:facepalm:')
   if(message.author.id === message.mentions.users.first()) return message.reply("You can't mute yourself:facepalm:");
   if (!muteRole) {
     try {

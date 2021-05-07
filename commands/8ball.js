@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
-const customisation = require('../customisation.json');
 
-exports.run = async (bot, message, args) => {
+exports.run = async (bot, message, args, customisation) => {
     if(!args[0]) return message.reply("Please ask a full question");
     let replies = [
         'Maybe.',

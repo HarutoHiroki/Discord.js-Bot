@@ -1,8 +1,7 @@
 const Discord = require("discord.js");
-const customisation = require('../customisation.json');
 const mongoose = require('mongoose');
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
   const Coins = require('../models/coins.js');
   let user = message.mentions.users.first() || client.users.cache.get(args[0]);
   if (!user) user = message.author;

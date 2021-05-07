@@ -1,9 +1,8 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
 const sf = require("snekfetch");
-const customisation = require('../customisation.json');
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
     const { body } = await superagent
     .get("http://aws.random.cat/meow");
 

@@ -1,8 +1,7 @@
 const nep = require('../data/nep.json');
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
 
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
     args = args.join(" ");
     const embed = new Discord.MessageEmbed()
     .setColor(Math.floor(Math.random()*16777215))

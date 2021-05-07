@@ -2,9 +2,8 @@ const Discord = require('discord.js');
 const AlexAPI = require('alexflipnote.js');
 const settings = require('../settings.json');
 const AlexClient = new AlexAPI(settings.apitoken);
-const customisation = require('../customisation.json');
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
   let avatar = message.mentions.users.size ? message.mentions.users.first().displayAvatarURL({ format: 'png', dynamic: true, size: 2048 }) : message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 2048 });
   let link = await AlexClient.image.amiajoke({image: avatar})
   const embed = new Discord.MessageEmbed()
@@ -20,11 +19,9 @@ exports.conf = {
     guildOnly: false,
     aliases: [],
     permLevel: 0
-  };
-  
-  exports.help = {
+};
+exports.help = {
     name: 'amiajoke',
     description: 'Am I A Joke to You?',
     usage: 'amiajoke (w or w/o @mention)'
-  };
-   
+};

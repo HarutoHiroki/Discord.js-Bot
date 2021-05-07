@@ -1,11 +1,10 @@
 const Discord = require('discord.js')
 const help = require('../data/helpMsgs.json');
-const customisation = require('../customisation.json');
 const settings = require('../settings.json');
 const fs = require('fs')
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
   if(!args[0]){
-    if (message.author.id === settings.ownerid) {  
+    if (message.author.id === customisation.ownerid) {
       const embed = new Discord.MessageEmbed()
       .addField("All commands have been migrated to here: (mobile not supported, yet.)", "https://is-really.fun/cryptonix/commands")
       .addField("For more info about a specific Command:", "Use [prefix]help command_name")

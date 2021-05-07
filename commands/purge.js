@@ -1,4 +1,4 @@
-exports.run = function(client, message, args) {
+exports.run = function(client, message, args, customisation) {
   //if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("❌**Error:** You don't have the **Manage Messages** permission!");
   if(!args[0]) return message.reply('Usage: purge all|bots|user|author|images <amount>')
   if(args[0] === 'all') {
@@ -58,7 +58,17 @@ exports.run = function(client, message, args) {
     })
   }
   else if(args[0] === 'image') {
-    message.reply("Upcoming feature :wink:")
+    if(!args[1]) return message.channel.send("You need to specify an amount");
+    if(isNaN(args[1])) return message.channel.send("You need to specify a valid amount");
+    if(parseInt(args[1]) > 100) return message.channel.send("I can only delete max 100 messages at a time :wink:")
+
+    let messagecount = parseInt(args[1]) + 1;
+    message.channel.messages.fetch({
+      limit: 100
+    }).then(messages =>{ if (!message.content || message.attachements.size > 0){ message.channel.bulkDelete(messagecount)}})
+    .catch(e => {
+      if(e) return message.channel.send("Error: ", e)
+    })
   }
   else {
     message.reply('Usage: purge all|bots|user|author <amount>')

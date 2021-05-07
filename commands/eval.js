@@ -1,12 +1,11 @@
-const customisation = require('../customisation.json');
 function clean(text) {
     if (typeof(text) === "string")
         return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
     else
         return text;
 }
-exports.run = (client, message, args) => {
-    if (message.author.id !== '242263403001937920') return message.channel.send('You scrub, what made you think you\'d be able to do that??');
+exports.run = (client, message, args, customisation) => {
+    if (message.author.id !== customisation.ownerid) return message.channel.send('You scrub, what made you think you\'d be able to do that??');
     args = args.join(" ");
     try {
         var evaled = eval(args);

@@ -23,7 +23,6 @@ exports.conf = {
     aliases: [],
     permLevel: 0
   };
-  
 exports.help = {
     name: 'advice',
     description: 'Send a Life Advice',

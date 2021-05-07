@@ -1,7 +1,6 @@
 const search = require('node-ddg').default;
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
     if (!args[0]) return message.channel.send("You must imput something for me to search!");
 
     let options = {
