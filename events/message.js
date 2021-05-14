@@ -131,7 +131,7 @@ module.exports = async message => {
           console.log(`Command: ${settings.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
           return;
         }
-        cmd.run(client, message, params, perms, findUser);
+        cmd.run(client, message, params, perms);
         console.log(`Command: ${settings.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
         if (message.author.id !== config.ownerid){
           if(cd.has(message.author.id)){
