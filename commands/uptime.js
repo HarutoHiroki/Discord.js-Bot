@@ -23,5 +23,6 @@ permLevel: 0
 exports.help = {
 name: 'uptime',
 description: 'Shows how long the bot has been online for.',
+category: "Useful",
 usage: 'uptime'
 };

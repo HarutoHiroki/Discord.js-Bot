@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   const embed = new Discord.MessageEmbed()
     .setColor("#ff9900")
     .setTitle("Here's Your Shibe")
-    .setImage(body[0]) 
+    .setImage(body[0])
     .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
     message.channel.send({embed});
 
@@ -25,5 +25,6 @@ exports.conf = {
   exports.help = {
     name: 'shibe',
     description: 'Sends a random shibe',
+    category: "Fun",
     usage: 'shibe'
   };

@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
-const customisation = require('../customisation.json');
 
-exports.run = async (bot, message, args) => {
+exports.run = async (bot, message, args, customisation) => {
     if(!args[0]) return message.reply("Please ask a full question");
     let replies = [
         'Maybe.',
@@ -55,6 +54,7 @@ exports.conf = {
 exports.help = {
     name: '8ball',
     description: 'Ask the bot a Question.',
-    usage: '8ball (question)'
+    usage: '8ball (question)',
+    category: "Fun"
   };
   

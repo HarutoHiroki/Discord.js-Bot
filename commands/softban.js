@@ -1,13 +1,12 @@
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
   let reason = args.slice(1).join(' ');
   if (!message.mentions.users.first()) return message.reply("You need to Mention someone to soft ban them!");
   let user = message.mentions.users.first();
   //if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply(":no_entry_sign: **Error:** You don't have the **Ban Members** permission!");
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to soft ban them.').catch(console.error);
   if (message.mentions.users.first().id === message.author.id) return message.reply('I can\' let you do that, self-harm is bad:facepalm:');
-  if (message.mentions.users.first().id === "242263403001937920") return message.reply("You can't ban my Developer:wink:");
+  if (message.mentions.users.first().id === customisation.ownerid) return message.reply("You can't ban my Developer:wink:");
   if (reason.length < 1) reason = 'No reason supplied.';
 
   if (!message.guild.member(user).bannable) return message.reply(`:redTick: I cannot ban that member`);
@@ -45,5 +44,6 @@ exports.conf = {
 exports.help = {
   name: 'softban',
   description: 'Soft Bans the mentioned user.',
+  category: "Mod",
   usage: 'softban [mention] [reason]'
 };

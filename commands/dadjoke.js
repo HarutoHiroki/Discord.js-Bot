@@ -14,5 +14,6 @@ exports.conf = {
 exports.help = {
     name: "dadjoke",
     description: 'Sends a Horible dad joke that makes you cringe.',
+    category: "Fun",
     usage: 'dadjoke'
 }

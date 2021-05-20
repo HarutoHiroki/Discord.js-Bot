@@ -14,5 +14,6 @@ exports.conf = {
 exports.help = {
   name: 'copypasta',
   description: 'Sends a random copypasta.',
+  category: "Useful",
   usage: 'copypasta'
 };

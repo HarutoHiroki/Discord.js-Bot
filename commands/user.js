@@ -1,13 +1,12 @@
 const moment = require('moment');
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
 function checkDays(date) {
   let now = new Date();
   let diff = now.getTime() - date.getTime();
   let days = Math.floor(diff / 86400000);
   return days + (days == 1 ? " day" : " days") + " ago";
 };
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
   let user = message.mentions.users.first();
   let muser = message.guild.member(message.mentions.users.first());
   if(!message.mentions.users.first() && args.length > 0){
@@ -47,6 +46,7 @@ exports.run = async (client, message, args) => {
           .addField('Joined Server', `${moment(muser.joinedAt).toString().substr(0, 15)}\n(${moment(muser.joinedAt).fromNow()})`, true)
           .addField('Roles', `${muser.roles.cache.array()}`, true)
           .addField('Is Bot', `${user.bot.toString().toUpperCase()}`, true)
+	  .addField('Is Bot Owner', `${(customisation.ownerid === user.id).toString().toUpperCase()}`, true)
           .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
       message.channel.send({embed});
 }
@@ -61,5 +61,6 @@ exports.conf = {
 exports.help = {
   name: 'user',
   description: 'Displays information about a user.',
+  category: "Useful",
   usage: 'user <@user>'
 };

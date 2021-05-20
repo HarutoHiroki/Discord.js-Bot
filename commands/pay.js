@@ -1,12 +1,9 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const settings = require('../settings.json');
-//const mysql = require('mysql');
-//const file = require('../mysql.json');
-const customisation = require('../customisation.json');
 const mongoose = require('mongoose');
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
   const Coins = require('../models/coins.js');
   if(!args[1]) return message.channel.send("You need to specify an ammount");
   let user = message.mentions.users.first();
@@ -75,5 +72,6 @@ exports.conf = {
 exports.help = {
     name: 'pay',
     description: 'Pay someone with Coins.',
+    category: "Eco",
     usage: 'pay @user amount'
   };

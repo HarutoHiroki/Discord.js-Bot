@@ -1,12 +1,11 @@
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   if (message.mentions.users.size < 1) return message.channel.send('You must mention someone to ban them.').catch(console.error);
   if (message.mentions.users.first().id === message.author.id) return message.channel.send('I can\'t let you do that, self-harm is bad:facepalm:');
   if (user.id === client.user.id) return message.channel.send("You pleblord, how can you use a bot to ban itself?:joy:");
-  if (message.mentions.users.first().id === "242263403001937920") return message.channel.send("You can't ban my Developer:wink:");
+  if (message.mentions.users.first().id === customisation.ownerid) return message.channel.send("You can't ban my Developer:wink:");
   if (reason.length < 1) reason = 'No reason supplied.';
   let botRolePossition = message.guild.member(client.user).roles.highest.position;
   let rolePosition = message.guild.member(user).roles.highest.position;
@@ -55,5 +54,6 @@ exports.run = (client, message, args) => {
 exports.help = {
   name: 'ban',
   description: 'Bans the mentioned user.',
+  category: "Mod",
   usage: 'ban [mention] [reason]'
 };

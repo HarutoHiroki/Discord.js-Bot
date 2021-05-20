@@ -46,5 +46,6 @@ exports.conf = {
 exports.help = {
     name: 'urban',
     description: 'Search urban dictionary',
+    category: "Useful",
     usage: 'urban <word>'
   };

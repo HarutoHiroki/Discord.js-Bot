@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
-const customisation = require('../customisation.json');
 
-exports.run = async (client, message, args, tools) => {
+exports.run = async (client, message, args, customisation, tools) => {
     const { body } = await superagent
     .get("https://nekos.life/api/v2/img/fox_girl");
     
@@ -24,5 +23,6 @@ exports.conf = {
   exports.help = {
     name: 'kitsune',
     description: 'Kitsunes OwO',
+    category: "Fun",
     usage: 'kitsune'
   };

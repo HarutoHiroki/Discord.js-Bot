@@ -17,9 +17,9 @@ exports.run = (client, message, args) => {
     aliases: [],
     permLevel: 2
   };
-  
-  exports.help = {
+exports.help = {
     name: 'unlockdown',
     description: 'This will unlockdown a channel.',
+    category: "Mod",
     usage: 'unlockdown'
   };

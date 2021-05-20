@@ -1,8 +1,6 @@
-const Discord = require('discord.js')
-const fs = require("fs");
-const customisation = require('../customisation.json');
+const Discord = require('discord.js') const fs = require("fs");
 
-exports.run = (client, message) => {
+exports.run = (client, message, customisation) => {
   let info = JSON.parse(fs.readFileSync("./halloffame.json", "utf8"));
   let big = ''
   for(i = 0; i < info.bigfam.length; i++){
@@ -33,5 +31,6 @@ exports.conf = {
 exports.help = {
   name: 'credits',
   description: 'Bot contributors!',
+  category: "Useful",
   usage: 'credits'
 };

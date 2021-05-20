@@ -1,21 +1,20 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
-const customisation = require('../customisation.json');
 
-exports.run = async (client, message, args, tools) => {
+exports.run = async (client, message, args, tools, customisation) => {
     if (!message.mentions.users.first()) return message.reply("You need to mention someone to slap them");
-    if(message.mentions.users.first().id === "242263403001937920") return message.reply('You can\'t hurt him you pleblord.');
-    if (message.mentions.users.first().id == client.user.id && message.author.id === "242263403001937920"){
+    if(message.mentions.users.first().id === customisation.ownerid) return message.reply('You can\'t hurt him you pleblord.');
+    if (message.mentions.users.first().id == client.user.id && message.author.id === customisation.ownerid){
       const { body } = await superagent
       .get("https://nekos.life/api/v2/img/slap");
 
       const embed = new Discord.MessageEmbed()
       .setColor("#ff9900")
       .setTitle(`No u! *slaps*${message.mentions.users.first().username}`)
-      .setImage(body.url) 
+      .setImage(body.url);
       .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
       return message.channel.send({embed})
-    }else if (message.mentions.users.first().id == client.user.id && message.author.id !== "242263403001937920"){
+    }else if (message.mentions.users.first().id == client.user.id && message.author.id !== customisation.ownerid){
       return message.channel.send("NUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU **owwie**")
     }
     const { body } = await superagent
@@ -39,5 +38,6 @@ exports.conf = {
   exports.help = {
     name: 'slap',
     description: 'Slaps someone OwO',
+    category: "Action",
     usage: 'slap'
   };

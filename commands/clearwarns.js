@@ -1,9 +1,8 @@
 const Discord = require('discord.js');
 const fs = require("fs");
 const ms = require("ms");
-const customisation = require('../customisation.json');
 
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
     let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
     let user = message.mentions.users.first();
     if (!message.member.hasPermission("KICK_MEMBERS")) return message.reply("❌**Error:** You don't have the **Kick Members** permission!");
@@ -37,15 +36,16 @@ exports.run = (client, message, args) => {
     message.channel.send({embed});
 }
 
-    exports.conf = {
+exports.conf = {
         enabled: true,
         guildOnly: false,
         aliases: [],
         permLevel: 0
-      };
-      
-    exports.help = {
+};
+
+exports.help = {
       name: 'clearwarns',
       description: 'Clear a user\'s warnings',
+      category: "Mod",
       usage: 'clearwarns [mention]'
-    };
+};
