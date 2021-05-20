@@ -1,0 +1,10 @@
+Caught exception: SyntaxError: Unexpected token 'const'
+Caught exception: SyntaxError: Unexpected token 'const'
+Caught exception: SyntaxError: Identifier 'args' has already been declared
+Caught exception: Error: Cannot find module 'node-ddg'
+Require stack:
+- C:\Users\1207150\Desktop\Discord.js-Bot\commands\duckduckgo.js
+- C:\Users\1207150\Desktop\Discord.js-Bot\index.js
+Caught exception: SyntaxError: Unexpected token '.'
+Caught exception: SyntaxError: Unexpected token '.'
+Caught exception: SyntaxError: Unexpected token '.'

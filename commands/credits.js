@@ -1,4 +1,5 @@
-const Discord = require('discord.js') const fs = require("fs");
+const Discord = require('discord.js');
+const fs = require("fs");
 
 exports.run = (client, message, customisation) => {
   let info = JSON.parse(fs.readFileSync("./halloffame.json", "utf8"));

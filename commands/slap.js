@@ -1,12 +1,11 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
 
-exports.run = async (client, message, args, tools, customisation) => {
+exports.run = async (client, message, args, customisation, tools) => {
     if (!message.mentions.users.first()) return message.reply("You need to mention someone to slap them");
-    if(message.mentions.users.first().id === customisation.ownerid) return message.reply('You can\'t hurt him you pleblord.');
-    if (message.mentions.users.first().id == client.user.id && message.author.id === customisation.ownerid){
-      const { body } = await superagent
-      .get("https://nekos.life/api/v2/img/slap");
+    if (message.mentions.users.first().id === customisation.ownerid) return message.reply('You can\'t hurt him you pleblord.');
+    if (message.mentions.users.first().id === client.user.id && message.author.id === customisation.ownerid){
+      const { body } = await superagent.get("https://nekos.life/api/v2/img/slap");
 
       const embed = new Discord.MessageEmbed()
       .setColor("#ff9900")
@@ -40,4 +39,4 @@ exports.conf = {
     description: 'Slaps someone OwO',
     category: "Action",
     usage: 'slap'
-  };
+};

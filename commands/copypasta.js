@@ -1,6 +1,6 @@
 const copypastas = require('../data/copypastas.json');
+
 exports.run = (client, message, args) => {
-    args = args.join(" ");
     message.channel.send(`${copypastas[Math.floor(Math.random() * copypastas.length)]}`);
 }
 
