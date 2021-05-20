@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
   client.unbanAuth = message.author;
   let user = args[0];
   let reason = args.slice(1).join(' ');
@@ -40,5 +39,6 @@ exports.conf = {
 exports.help = {
   name: 'unban',
   description: 'Unbans the user.',
+  category: "Mod",
   usage: 'unban [mention] [reason]'
 };

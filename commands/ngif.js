@@ -19,9 +19,9 @@ exports.conf = {
     aliases: [],
     permLevel: 0
   };
-  
-  exports.help = {
+exports.help = {
     name: 'ngif',
     description: 'Neko Gifs OwO',
+    category: "Fun",
     usage: 'ngif'
-  };
+};

@@ -20,5 +20,6 @@ exports.conf = {
 exports.help = {
   name: 'moe',
   description: 'Sends a random awwnime image',
+  category: "Fun",
   usage: 'moe'
 };

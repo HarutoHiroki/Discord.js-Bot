@@ -61,9 +61,10 @@ exports.conf = {
     aliases: [],
     permLevel: 0
 };
-  
+
 exports.help = {
     name: 'gamble',
     description: 'Gamble for a chance of winning more coins',
+    category: "Eco",
     usage: 'gamble <amount>'
 };

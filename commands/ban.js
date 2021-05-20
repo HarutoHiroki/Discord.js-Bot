@@ -54,5 +54,6 @@ exports.run = (client, message, args, customisation) => {
 exports.help = {
   name: 'ban',
   description: 'Bans the mentioned user.',
+  category: "Mod",
   usage: 'ban [mention] [reason]'
 };

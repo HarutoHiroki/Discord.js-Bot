@@ -26,5 +26,6 @@ exports.conf = {
 exports.help = {
   name: 'eval',
   description: 'Evaluates a JS string.',
+  category: "Owner",
   usage: 'eval'
 };

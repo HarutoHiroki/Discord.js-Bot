@@ -12,10 +12,11 @@ exports.conf = {
     aliases: [],
     permLevel: 5
   };
-  
+
 exports.help = {
   name: 'leave',
   description: 'Leave the server that the bot is in.',
+  category: "Owner",
   usage: 'leave'
 };
-  
+

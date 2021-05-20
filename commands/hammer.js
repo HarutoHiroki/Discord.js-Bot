@@ -17,5 +17,6 @@ exports.conf = {
 exports.help = {
   name: 'hammer',
   description: 'Gives you a hammer to throw at a pleb.',
+  category: "Action",
   usage: 'hammer'
 };

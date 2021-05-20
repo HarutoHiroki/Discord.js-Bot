@@ -26,5 +26,6 @@ exports.conf = {
   exports.help = {
     name: 'pat',
     description: 'Pats someone OwO',
+    category: "Action",
     usage: 'pat'
   };

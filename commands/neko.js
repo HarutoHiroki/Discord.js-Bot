@@ -24,5 +24,6 @@ exports.conf = {
   exports.help = {
     name: 'neko',
     description: 'Sends a random Neko OwO',
+    category: "Fun",
     usage: 'neko'
   };

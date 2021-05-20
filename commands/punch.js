@@ -18,5 +18,6 @@ exports.conf = {
 exports.help = {
   name: 'punch',
   description: 'Punches a user.',
+  category: "Action",
   usage: 'punch <user>'
 };

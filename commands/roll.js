@@ -13,5 +13,6 @@ exports.conf = {
 exports.help = {
   name: 'roll',
   description: 'Rolls a die.',
+  category: "Fun",
   usage: 'roll'
 };

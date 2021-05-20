@@ -28,10 +28,10 @@ exports.conf = {
     aliases: [],
     permLevel: 0
   };
-  
   exports.help = {
     name: 'warnlevel',
     description: 'Show how many warnings a user have',
-    usage: 'warnlevel [mention]'
-  };
+    usage: 'warnlevel [mention]',
+    category: "Useful"
+};
   //message.guild.member() || message.guild.members.get(args[0])

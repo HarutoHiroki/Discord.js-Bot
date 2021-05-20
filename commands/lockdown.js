@@ -17,5 +17,6 @@ exports.conf = {
 exports.help = {
   name: 'lockdown',
   description: 'This will lock a channel down.',
+  category: "Mod",
   usage: 'lockdown'
 };

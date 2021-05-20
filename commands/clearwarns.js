@@ -36,15 +36,16 @@ exports.run = (client, message, args, customisation) => {
     message.channel.send({embed});
 }
 
-    exports.conf = {
+exports.conf = {
         enabled: true,
         guildOnly: false,
         aliases: [],
         permLevel: 0
-      };
-      
-    exports.help = {
+};
+
+exports.help = {
       name: 'clearwarns',
       description: 'Clear a user\'s warnings',
+      category: "Mod",
       usage: 'clearwarns [mention]'
-    };
+};

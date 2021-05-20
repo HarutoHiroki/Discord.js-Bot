@@ -72,5 +72,6 @@ exports.conf = {
 exports.help = {
     name: 'pay',
     description: 'Pay someone with Coins.',
+    category: "Eco",
     usage: 'pay @user amount'
   };

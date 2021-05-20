@@ -85,5 +85,6 @@ exports.conf = {
 exports.help = {
   name: 'purge',
   description: 'Purges X amount of messages from a given channel.',
+  category: "Mod",
   usage: 'purge all|bots|user|author <amount>'
 };

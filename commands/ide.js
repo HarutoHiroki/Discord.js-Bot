@@ -44,5 +44,6 @@ exports.conf = {
 exports.help = {
   name: 'ide',
   description: 'IDEs and Text Editors',
+  category: "Useful",
   usage: 'ide'
 };

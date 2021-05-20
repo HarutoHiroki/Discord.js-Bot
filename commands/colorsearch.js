@@ -29,6 +29,7 @@ exports.conf = {
   exports.help = {
     name: 'colorsearch',
     description: 'Search a color',
+    category: "Useful",
     usage: 'colorsearch (hexcode)'
   };
    

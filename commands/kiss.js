@@ -27,5 +27,6 @@ exports.conf = {
   exports.help = {
     name: 'kiss',
     description: 'Kisses someone OwO',
+    category: "Action",
     usage: 'kiss'
   };

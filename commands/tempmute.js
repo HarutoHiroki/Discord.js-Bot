@@ -1,9 +1,7 @@
 const Discord = require("discord.js");
 const ms = require("ms");
-const customisation = require('../customisation.json');
 
-exports.run = async (client, message, args) => {
-
+exports.run = async (client, message, args, customisation) => {
     let tomute = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
     if(!tomute) return message.reply("Couldn't find that user.");
     if(message.author.id === message.mentions.users.first()) return message.reply("You can't mute yourself:facepalm:");
@@ -15,7 +13,6 @@ exports.run = async (client, message, args) => {
                 color: "#000000",
                 permissions:[]
             }});
-    
             message.guild.channels.cache.forEach(async (channel, id) => {
                 await channel.createOverwrite(muteRole, {
                     SEND_MESSAGES: false,
@@ -30,7 +27,7 @@ exports.run = async (client, message, args) => {
     }
     let mutetime = args[1];
     if(!mutetime) return message.reply("You didnt specify a time for temporary mute.");
-    
+
     const embed = new Discord.MessageEmbed()
     .setColor(0x00FFFF)
     .setTimestamp()
@@ -59,5 +56,6 @@ exports.conf = {
   exports.help = {
     name: 'tempmute',
     description: 'Temporary mute the mentioned user',
+    category: "Mod",
     usage: 'tempmute @user (time)'
   };

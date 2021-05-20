@@ -23,5 +23,6 @@ exports.conf = {
 exports.help = {
     name: 'amiajoke',
     description: 'Am I A Joke to You?',
+    category: "Fun",
     usage: 'amiajoke (w or w/o @mention)'
 };

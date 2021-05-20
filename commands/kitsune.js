@@ -23,5 +23,6 @@ exports.conf = {
   exports.help = {
     name: 'kitsune',
     description: 'Kitsunes OwO',
+    category: "Fun",
     usage: 'kitsune'
   };

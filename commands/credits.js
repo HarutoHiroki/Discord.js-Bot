@@ -31,5 +31,6 @@ exports.conf = {
 exports.help = {
   name: 'credits',
   description: 'Bot contributors!',
+  category: "Useful",
   usage: 'credits'
 };

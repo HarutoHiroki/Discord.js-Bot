@@ -46,5 +46,6 @@ exports.conf = {
 exports.help = {
   name: 'hackban',
   description: 'Forcebans a user.',
+  category: "Mod",
   usage: 'hackban [user id] [reason]'
 };

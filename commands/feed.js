@@ -22,9 +22,10 @@ exports.conf = {
     aliases: [],
     permLevel: 0
   };
-  
+
   exports.help = {
     name: 'feed',
     description: 'Feeds someone OwO',
+    category: "Fun",
     usage: 'feed'
   };

@@ -54,6 +54,7 @@ exports.conf = {
 exports.help = {
     name: '8ball',
     description: 'Ask the bot a Question.',
-    usage: '8ball (question)'
+    usage: '8ball (question)',
+    category: "Fun"
   };
   

@@ -14,9 +14,9 @@ exports.conf = {
     aliases: ["eff"],
     permLevel: 0
   };
-  
   exports.help = {
-    name: 'f',
-    description: 'Press F to pay Respekt',
-    usage: 'f'
-  };
+	name: 'f',
+	description: 'Press F to pay Respekt',
+	category: "Fun",
+	usage: 'f'
+};

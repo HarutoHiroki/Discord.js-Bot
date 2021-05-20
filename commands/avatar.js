@@ -28,5 +28,6 @@ exports.conf = {
 exports.help = {
   name: 'avatar',
   description: 'Fetches a user\'s avatar.',
+  category: "Useful",
   usage: 'avatar <user>'
 };

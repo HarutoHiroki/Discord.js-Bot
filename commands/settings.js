@@ -1,10 +1,9 @@
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
 const https = require('https');
 const fs = require('fs')
 const mongoose = require('mongoose')
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
     //if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("❌**Error:** You have to be an Admin to use this command!");
     if(!args) return message.reply("Usage: `settings current|example|template|upload (file upload)`")
     if(args[0] === 'template'){
@@ -141,11 +140,10 @@ exports.conf = {
     guildOnly: false,
     aliases: [],
     permLevel: 3
-  };
-  
+};
   exports.help = {
     name: 'settings',
     description: 'Full bot settings upload',
+    category: "Mod",
     usage: 'settings template|upload (file upload)'
-  };
-   
+};

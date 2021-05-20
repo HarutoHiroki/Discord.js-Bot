@@ -31,6 +31,7 @@ exports.conf = {
 exports.help = {
     name: 'coins',
     description: 'Check a user\'s coins.',
+    category: "Eco",
     usage: 'coins'
   };
   

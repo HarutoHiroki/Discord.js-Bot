@@ -29,5 +29,6 @@ exports.conf = {
 exports.help = {
   name: 'invite',
   description: 'DMs you the bot\'s invite link.',
+  category: "Useful",
   usage: 'invite'
 };

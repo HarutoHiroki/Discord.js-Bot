@@ -18,5 +18,6 @@ exports.conf = {
 exports.help = {
   name: 'exec',
   description: 'Executes a process command.',
+  category: "Owner",
   usage: 'exec'
 };

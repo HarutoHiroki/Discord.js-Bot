@@ -17,6 +17,7 @@ exports.conf = {
   
 exports.help = {
     name: 'coinflip',
+    category: "Fun",
     description: 'Flip a Coin',
     usage: 'coinflip'
   };

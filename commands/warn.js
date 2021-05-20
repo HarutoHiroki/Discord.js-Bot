@@ -83,5 +83,6 @@ exports.conf = {
 exports.help = {
   name: 'warn',
   description: 'Issues a warning to the mentioned user.',
+  category: "Mod",
   usage: 'warn [mention] [reason]'
 };

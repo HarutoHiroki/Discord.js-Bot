@@ -26,5 +26,6 @@ exports.conf = {
 exports.help = {
     name: 'advice',
     description: 'Send a Life Advice',
+    category: "Useful",
     usage: 'advice'
   };

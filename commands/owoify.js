@@ -18,5 +18,6 @@ exports.conf = {
 exports.help = {
   name: 'owoify',
   description: 'OwO-ify a message',
+  category: "Fun",
   usage: 'owoify'
 };

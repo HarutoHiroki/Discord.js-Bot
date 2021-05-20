@@ -24,5 +24,6 @@ exports.conf = {
   exports.help = {
     name: 'wallpaper',
     description: 'Anime wallpapers OwO',
+    category: "NSFW",
     usage: 'wallpaper'
   };

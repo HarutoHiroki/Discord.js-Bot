@@ -17,5 +17,6 @@ exports.conf = {
 exports.help = {
   name: 'bug',
   description: 'Reports a bug.',
+  category: "Useful",
   usage: 'bug <bug>'
 };

@@ -24,12 +24,12 @@ exports.run = async (client, message, args) => {
           userID: result[i].userID
         };
         const MongoClient = require('mongodb').MongoClient;
-        const url = "mongodb+srv://harutohiroki:MCMMO_Pro13309@cryptonixdb-oloic.gcp.mongodb.net/DiscordDB?retryWrites=true&w=majority";
+        const url = "mongodb://localhost:27017/DiscordDB?retryWrites=true&w=majority";
         MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true  }, function(err, db) {
             if (err) throw err;
             const dbo = db.db("DiscordDB");
             dbo.collection("coins").deleteMany(myquery, function(err, obj) {
-                if (err){ 
+                if (err){
                   throw err
                 };
                 db.close();
@@ -54,9 +54,9 @@ exports.conf = {
     aliases: ['richest','millionair','nolife'],
     permLevel: 0
   };
-  
 exports.help = {
     name: 'rich',
     description: 'Send top 10 richest bot users',
+    category: "Eco",
     usage: 'rich'
   };

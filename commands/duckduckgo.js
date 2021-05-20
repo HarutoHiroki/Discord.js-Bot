@@ -21,7 +21,7 @@ exports.run = async (client, message, args, customisation) => {
           if(i > results.length - 1) {
               break;
           }
-      
+
       string = string + `\n**${results[i].title}** \n${results[i].body} \n${results[i].url}`
         }
       //console.log(results)
@@ -44,5 +44,6 @@ exports.conf = {
 exports.help = {
   name: 'duckduckgo',
   description: 'Searches something.',
+  category: "Useful",
   usage: 'duckduckgo <query>'
 };
