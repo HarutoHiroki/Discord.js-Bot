@@ -45,5 +45,6 @@ exports.conf = {
 exports.help = {
   name: 'timedlockdown',
   description: 'This will lock a channel down for the set duration, be it in hours, minutes or seconds.',
+  category: "Mod",
   usage: 'timedlockdown <duration>'
 };

@@ -17,5 +17,6 @@ exports.conf = {
 exports.help = {
   name: 'rps',
   description: 'Rock, Papper, Scissors.',
+  category: "Fun",
   usage: 'rps'
 };

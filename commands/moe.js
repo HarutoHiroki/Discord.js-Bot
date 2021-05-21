@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const randomPuppy = require('random-puppy');
-const customisation = require('../customisation.json');
 
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
     randomPuppy('awwnime')
     .then(url => {
         const embed = new Discord.MessageEmbed()
@@ -17,10 +16,10 @@ exports.conf = {
     guildOnly: false,
     aliases: [],
     permLevel: 0
-    };
-     
+};
 exports.help = {
   name: 'moe',
   description: 'Sends a random awwnime image',
+  category: "Fun",
   usage: 'moe'
 };

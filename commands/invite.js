@@ -1,8 +1,7 @@
 const Discord = require('discord.js')
 const info = require('../data/infoMsgs.json');
-const customisation = require('../customisation.json');
 
-exports.run = (client, message) => {
+exports.run = (client, message, customisation) => {
   const embed = new Discord.MessageEmbed()
   .setColor(Math.floor(Math.random()*16777215))
   .setTitle("Cryptonix Mod Bot Info:", '')
@@ -30,5 +29,6 @@ exports.conf = {
 exports.help = {
   name: 'invite',
   description: 'DMs you the bot\'s invite link.',
+  category: "Useful",
   usage: 'invite'
 };

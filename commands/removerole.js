@@ -1,5 +1,4 @@
-const settings = require('../settings.json');
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
     if (!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("❌**Error:** I don't have the **Manage Roles** permission!");
     if (message.mentions.users.size === 0) return message.reply("❌Please mention a user to give the role to.\nExample: `addrole @user Members`");
     let member = message.guild.member(message.mentions.users.first());
@@ -28,5 +27,6 @@ exports.conf = {
 exports.help = {
   name: 'removerole',
   description: 'Removes a role. It\'s as simple as adding a role.',
+  category: "Mod",
   usage: 'removerole'
 };

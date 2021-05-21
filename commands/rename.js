@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fs = require("fs");
 const ms = require("ms");
 
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
   let newname = args.slice(1).join(' ');
   let user;
   let mention = message.mentions.users.first();
@@ -12,7 +12,7 @@ exports.run = (client, message, args) => {
   }else{
     user = message.guild.member(mention)
   }
-  if (user.id === "242263403001937920" && message.author.id !== "242263403001937920") return message.reply("You can't rename my Developer:wink:");
+  if (user.id === customisation.ownerid && message.author.id !== customisation.ownerid) return message.reply("You can't rename my Developer:wink:");
   user.setNickname(newname).catch(e => {
     if(e) return message.channel.send(`An error occured: \`\`\`${e}\`\`\``)
   });
@@ -29,5 +29,6 @@ exports.conf = {
 exports.help = {
   name: 'rename',
   description: 'Rename the mentioned user.',
+  category: "Mod",
   usage: 'rename @user|userID newname'
 };

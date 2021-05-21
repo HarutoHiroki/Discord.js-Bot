@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
-const customisation = require('../customisation.json');
 
-exports.run = async (client, message, args, tools) => {
+exports.run = async (client, message, args, customisation, tools) => {
     const { body } = await superagent
     .get("https://nekos.life/api/neko");
     link = body.neko;
@@ -25,5 +24,6 @@ exports.conf = {
   exports.help = {
     name: 'neko',
     description: 'Sends a random Neko OwO',
+    category: "Fun",
     usage: 'neko'
   };

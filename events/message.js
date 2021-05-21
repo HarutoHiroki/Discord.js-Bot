@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const config = require('../settings.json');
+const customisation = require('../data/customisation.json');
 const fs = require("fs");
 const superagent = require('superagent');
 const mongoose = require('mongoose');
@@ -15,7 +16,7 @@ module.exports = async message => {
   userData.findOne({
     userID: message.author.id,
   }, async (err, blacklist) => {
-    if (blacklist === 1) return;
+    if (blacklist === true) return;
     })
 
   const settings = require("../models/settings.js");
@@ -49,9 +50,9 @@ module.exports = async message => {
           return;
         }
 
-        cmd.run(client, message, params, perms);
+        cmd.run(client, message, params, perms, customisation);
         console.log(`Command: ${alt.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
-        if (message.author.id !== config.ownerid){
+        if (message.author.id !== customisation.ownerid){
           if(cd.has(message.author.id)){
             message.delete();
             return message.reply("This command is for cooldown for 5 sec")
@@ -131,9 +132,9 @@ module.exports = async message => {
           console.log(`Command: ${settings.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
           return;
         }
-        cmd.run(client, message, params, perms);
+        cmd.run(client, message, params, customisation);
         console.log(`Command: ${settings.prefix}` + cmd.help.name + " - Guild: " + message.guild.name + " ID: " + message.guild.id)
-        if (message.author.id !== config.ownerid){
+        if (message.author.id !== customisation.ownerid){
           if(cd.has(message.author.id)){
             message.delete();
             return message.reply("This command is for cd for 5 sec")

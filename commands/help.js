@@ -1,51 +1,31 @@
 const Discord = require('discord.js')
 const help = require('../data/helpMsgs.json');
-const customisation = require('../customisation.json');
 const settings = require('../settings.json');
 const fs = require('fs')
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
   if(!args[0]){
-    if (message.author.id === settings.ownerid) {  
       const embed = new Discord.MessageEmbed()
       .addField("All commands have been migrated to here: (mobile not supported, yet.)", "https://is-really.fun/cryptonix/commands")
       .addField("For more info about a specific Command:", "Use [prefix]help command_name")
-      .addField("Moderation:", help.helpMsg1)
-      .addField("Music:", help.helpMsg2)
-      .addField("Fun:", help.helpMsg3)
-      .addField("Useful:", help.helpMsg4)
-      .addField("Action:", help.helpMsg5)
-      .addField("NSFW:", help.helpMsg6)
-      .addField('Bot Owner Commands', help.helpMsg7)
+      .addField("Mod Commands", client.commands.filter((x) => x.help.category === 'Mod').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("Fun Commands", client.commands.filter((x) => x.help.category === 'Fun').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("Music Commands", client.commands.filter((x) => x.help.category === 'Music').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("Useful Commands", client.commands.filter((x) => x.help.category === 'Useful').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("Action Commands", client.commands.filter((x) => x.help.category === 'Action').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("NSFW Commands", client.commands.filter((x) => x.help.category === 'NSFW').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
       .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
+    if (message.author.id === customisation.ownerid) {
+      embed.addField("Bot Owner Commands", client.commands.filter((x) => x.help.category === 'Owner').map((x) => `\`${x.help.name}\``).join(', ') || "NONE");
+	}
       message.author.send({embed}).catch(e =>{
         if (e) {
         message.channel.send(`Error. You seems to be locking your DMs so I'll send it here instead.`);
         message.channel.send({embed});
         }
-      });
-      message.reply("Check your DMs!");
-    }else{
-      const embed = new Discord.MessageEmbed()
-      .setColor(Math.floor(Math.random()*16777215))
-      .setTitle("Command list for Cryptonix:", '')
-      .addField("All commands have been migrated to here:", "https://is-really.fun/cryptonix/commands")
-      .addField("For more info about a specific Command:", "Use [prefix]help command_name")
-      .addField("Moderation:", help.helpMsg1)
-      .addField("Music:", help.helpMsg2)
-      .addField("Fun:", help.helpMsg3)
-      .addField("Useful:", help.helpMsg4)
-      .addField("Action:", help.helpMsg5)
-      .addField("NSFW:", help.helpMsg6)
-      .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
-      message.author.send({embed}).catch(e =>{
-        if (e) {
-        message.channel.send(`Error. You seems to be locking your DMs so I'll send it here instead.`);
-        message.channel.send({embed});
-        }
-      });
-      message.reply("Check your DMs!");
-    }
-  }else{
+	message.reply("Check your DMs!");
+      return;
+	})
+  } else {
     let command = args[0];
     if (client.commands.has(command)) {
       cmd = client.commands.get(command);
@@ -56,9 +36,8 @@ exports.run = (client, message, args) => {
     } else {
       return message.reply("That command doesn't exist!")
     }
-  }
 }
-
+}
 exports.conf = {
   enabled: true,
   guildOnly: false,
@@ -68,6 +47,7 @@ exports.conf = {
 
 exports.help = {
   name: 'help',
+  category: "Useful",
   description: 'Displays all the available commands for your permission level.',
   usage: 'help [command]'
 };

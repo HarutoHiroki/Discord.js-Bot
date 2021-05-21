@@ -75,5 +75,6 @@ exports.conf = {
 exports.help = {
     name: 'currency',
     description: 'Convert Currencies',
+    category: "Useful",
     usage: 'currency <amount> [Base currency] [Target currency]'
   };

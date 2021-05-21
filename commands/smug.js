@@ -1,14 +1,12 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
-const customisation = require('../customisation.json');
-
-exports.run = async (client, message, args, tools) => {
+exports.run = async (client, message, args, customisation, tools) => {
     const { body } = await superagent
     .get("https://nekos.life/api/v2/img/smug");
-    
+
     const embed = new Discord.MessageEmbed()
     .setColor("#ff9900")
-    .setImage(body.url) 
+    .setImage(body.url)
     .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
     message.channel.send({embed})
 };
@@ -23,5 +21,6 @@ exports.conf = {
   exports.help = {
     name: 'smug',
     description: 'Smugs xD',
+    category: "Action",
     usage: 'smug'
   };

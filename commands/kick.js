@@ -1,13 +1,12 @@
 const Discord = require('discord.js');
-const customisation = require('../customisation.json');
-exports.run = (client, message, args) => {
+exports.run = (client, message, args, customisation) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to kick them.').catch(console.error);
   if (user.id === message.author.id) return message.reply("I can't let you do that, self-harm is bad:facepalm:");
   if (user.id === client.user.id) return message.reply("You pleblord, how can you use a bot to kick itself?:joy:");
   
-  if (message.mentions.users.first().id === "242263403001937920") return message.reply("You can't kick my Developer:wink:");
+  if (message.mentions.users.first().id === customisation.ownerid) return message.reply("You can't kick my Developer:wink:");
   if (reason.length < 1) reason = 'No reason supplied';
 
   if (!message.guild.member(user).kickable) return message.reply('I cannot kick that member');
@@ -50,5 +49,6 @@ exports.conf = {
 exports.help = {
   name: 'kick',
   description: 'Kicks the mentioned user.',
+  category: "Mod",
   usage: 'kick [mention] [reason]'
 };

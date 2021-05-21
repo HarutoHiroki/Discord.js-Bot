@@ -1,12 +1,11 @@
 const Discord = require('discord.js')
 const settings = require('../settings.json');
 const fs = require('fs');
-const customisation = require('../customisation.json');
 const osutils = require('os-utils');
 const version = require('../package.json')
 
-exports.run = async (client, message) => {
-  
+exports.run = async (client, message, customisation) => {
+
   var milliseconds = parseInt((client.uptime % 1000) / 100),
   seconds = parseInt((client.uptime / 1000) % 60),
   minutes = parseInt((client.uptime / (1000 * 60)) % 60),
@@ -19,14 +18,14 @@ exports.run = async (client, message) => {
   fs.readdir('./commands/', async (err, files) => {
     if (err) console.error(err);
     totcmds = files.length;
-  
+
     const prefixs = require("../models/settings.js")
     prefixs.findOne({
       guildID: message.guild.id
     }, (err, srid) => {
       let prefix = srid.prefix
       if(!prefix) prefix = "/"
-      
+
       let globalprefix = settings.prefix;
       osutils.cpuUsage(function(v) {
         const embed = new Discord.MessageEmbed()
@@ -71,5 +70,6 @@ exports.conf = {
 exports.help = {
   name: 'stats',
   description: 'Displays bot\'s stats.',
+  category: "Useful",
   usage: 'stats'
 };

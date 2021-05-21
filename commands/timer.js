@@ -33,5 +33,6 @@ exports.conf = {
 exports.help = {
     name: 'timer',
     description: 'Create a timer.',
+    category: "Useful",
     usage: 'timer'
   };

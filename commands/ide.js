@@ -1,7 +1,6 @@
 const Discord = require('discord.js')
-const customisation = require('../customisation.json');
 
-exports.run = (client, message) => {
+exports.run = (client, message, customisation) => {
   const embed = new Discord.MessageEmbed()
   .setColor(Math.floor(Math.random()*16777215))
   .addField('IDEs and Text Editors', 'There are many different ways to edit code, from code' +
@@ -44,5 +43,6 @@ exports.conf = {
 exports.help = {
   name: 'ide',
   description: 'IDEs and Text Editors',
+  category: "Useful",
   usage: 'ide'
 };

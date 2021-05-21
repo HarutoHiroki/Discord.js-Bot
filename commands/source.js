@@ -26,5 +26,6 @@ exports.conf = {
   exports.help = {
     name: 'source',
     description: 'Bot\'s Source Code',
+    category: "Useful",
     usage: 'source'
   };
