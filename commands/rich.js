@@ -17,25 +17,8 @@ exports.run = async (client, message, args) => {
       if(i > result.length - 1) {
         break;
       }
-      //if(!client.users.cache.get(`${result[i].userID}`)) {}
       const user = await client.users.cache.get(`${result[i].userID}`)
-      /*if(!user){
-        const myquery = {
-          userID: result[i].userID
-        };
-        const MongoClient = require('mongodb').MongoClient;
-        const url = "mongodb://localhost:27017/DiscordDB?retryWrites=true&w=majority";
-        MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true  }, function(err, db) {
-            if (err) throw err;
-            const dbo = db.db("DiscordDB");
-            dbo.collection("coins").deleteMany(myquery, function(err, obj) {
-                if (err){
-                  throw err
-                };
-                db.close();
-            });
-        })
-      }*/ // remove the /* */ for the database purge function
+     
       if(user != undefined && !user.bot) {
           lstring = lstring + `${order}. ${user.username} - ${result[i].coins} coins\n`
           order++
@@ -54,9 +37,9 @@ exports.conf = {
     aliases: ['richest','millionair','nolife'],
     permLevel: 0
   };
+  
 exports.help = {
     name: 'rich',
     description: 'Send top 10 richest bot users',
-    category: "Eco",
     usage: 'rich'
   };
