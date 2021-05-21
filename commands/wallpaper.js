@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
-const customisation = require('../customisation.json');
 
-exports.run = async (client, message, args, tools) => {
+exports.run = async (client, message, args, customisation, tools) => {
     const { body } = await superagent
     .get("https://nekos.life/api/v2/img/wallpaper");
     if(!message.channel.nsfw) return message.reply("NSFW is not enabled in this channel");

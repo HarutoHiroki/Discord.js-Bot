@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
-const customisation = require('../customisation.json');
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
    const { body } = await superagent
   .get(`http://shibe.online/api/shibes?count=1&urls=true&httpsUrls=true`)
 

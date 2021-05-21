@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const fs = require('fs');
 const moment = require('moment');
 const mongoose = require('mongoose')
-const customisation = require('./customisation.json');
+
 require('./util/eventLoader')(client);
 const util = require('util');
 const log = message => {

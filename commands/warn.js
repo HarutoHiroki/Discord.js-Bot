@@ -3,9 +3,8 @@ const fs = require("fs");
 const ms = require("ms");
 //const mysql = require('mysql');
 //const file = require('../mysql.json');
-const customisation = require('../customisation.json');
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, args, customisation) => {
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
   let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
