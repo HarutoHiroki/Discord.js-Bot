@@ -8,13 +8,13 @@ exports.run = (client, message, args, customisation) => {
       const embed = new Discord.MessageEmbed()
       .addField("All commands have been migrated to here: (mobile not supported, yet.)", "https://is-really.fun/cryptonix/commands")
       .addField("For more info about a specific Command:", "Use [prefix]help command_name")
-      .addField("Mod Commands", client.commands.filter((x) => x.help.category === 'Mod').map((x) => `\`${x.name}\``).join(', '))
-      .addField("Fun Commands", client.commands.filter((x) => x.help.category === 'Fun').map((x) => `\`${x.name}\``).join(', '))
-      .addField("Music Commands", client.commands.filter((x) => x.help.category === 'Music').map((x) => `\`${x.name}\``).join(', '))
-      .addField("Useful Commands", client.commands.filter((x) => x.help.category === 'Useful').map((x) => `\`${x.name}\``).join(', '))
-      .addField("Action Commands", client.commands.filter((x) => x.help.category === 'Action').map((x) => `\`${x.name}\``).join(', '))
-      .addField("NSFW Commands", client.commands.filter((x) => x.help.category === 'NSFW').map((x) => `\`${x.name}\``).join(', '))
-      .addField("Bot Owner Commands", client.commands.filter((x) => x.help.category === 'Owner').map((x) => `\`${x.name}\``).join(', '))
+      .addField("Mod Commands", client.commands.filter((x) => x.help.category === 'Mod').map((x) => `\`${x.help.name}\``).join(', '))
+      .addField("Fun Commands", client.commands.filter((x) => x.help.category === 'Fun').map((x) => `\`${x.help.name}\``).join(', '))
+      .addField("Music Commands", client.commands.filter((x) => x.help.category === 'Music').map((x) => `\`${x.help.name}\``).join(', '))
+      .addField("Useful Commands", client.commands.filter((x) => x.help.category === 'Useful').map((x) => `\`${x.help.name}\``).join(', '))
+      .addField("Action Commands", client.commands.filter((x) => x.help.category === 'Action').map((x) => `\`${x.help.name}\``).join(', '))
+      .addField("NSFW Commands", client.commands.filter((x) => x.help.category === 'NSFW').map((x) => `\`${x.help.name}\``).join(', '))
+      .addField("Bot Owner Commands", client.commands.filter((x) => x.help.category === 'Owner').map((x) => `\`${x.help.name}\``).join(', '))
       .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
       message.author.send({embed}).catch(e =>{
         if (e) {
@@ -29,12 +29,12 @@ exports.run = (client, message, args, customisation) => {
       .setTitle("Command list for Cryptonix:", '')
       .addField("All commands have been migrated to here:", "https://is-really.fun/cryptonix/commands")
       .addField("For more info about a specific Command:", "Use [prefix]help command_name")
-      .addField("Mod Commands", client.commands.filter((x) => x.help.category === 'Mod').map((x) => `\`${x.name}\``).join(', '))
-      .addField("Fun Commands", client.commands.filter((x) => x.help.category === 'Fun').map((x) => `\`${x.name}\``).join(', '))
-      .addField("Music Commands", client.commands.filter((x) => x.help.category === 'Music').map((x) => `\`${x.name}\``).join(', '))
-      .addField("Useful Commands", client.commands.filter((x) => x.help.category === 'Useful').map((x) => `\`${x.name}\``).join(', '))
-      .addField("Action Commands", client.commands.filter((x) => x.help.category === 'Action').map((x) => `\`${x.name}\``).join(', '))
-      .addField("NSFW Commands", client.commands.filter((x) => x.help.category === 'NSFW').map((x) => `\`${x.name}\``).join(', '))
+      .addField("Mod Commands", client.commands.filter((x) => x.help.category === 'Mod').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("Fun Commands", client.commands.filter((x) => x.help.category === 'Fun').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("Music Commands", client.commands.filter((x) => x.help.category === 'Music').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("Useful Commands", client.commands.filter((x) => x.help.category === 'Useful').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("Action Commands", client.commands.filter((x) => x.help.category === 'Action').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
+      .addField("NSFW Commands", client.commands.filter((x) => x.help.category === 'NSFW').map((x) => `\`${x.help.name}\``).join(', ') || "NONE")
       .setFooter(`© Cryptonix X Mod Bot by ${customisation.ownername}`);
       message.author.send({embed}).catch(e =>{
         if (e) {
